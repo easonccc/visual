@@ -108,6 +108,7 @@ export default {
         var geoCoordMap = {
           吴江: [120.651567, 31.145386],
           宜昌: [111.380447, 30.633675],
+
           七都: [120.651567, 31.145386],
           连云港: [119.454276, 34.618441],
           宿迁: [118.40563, 33.977147],
@@ -228,12 +229,13 @@ export default {
 
         var color = ["#a6c84c", "#ffa022", "#46bee9"];
         var series = [];
-        let target = "湖北";
+        let target = "宜昌";
         [[target, BJData]].forEach(function(item, i) {
           series.push(
             {
               map: "china",
               type: "map",
+
               label: {
                 normal: {
                   show: false,
@@ -242,8 +244,8 @@ export default {
                   show: false,
                 },
               },
-              layoutCenter: ["60%", "50%"],
-              layoutSize: that.map == "china" ? "130%" : "90%",
+              layoutCenter: ["50%", "50%"],
+              layoutSize: that.map == "china" ? "120%" : "90%",
               itemStyle: {
                 normal: {
                   areaColor: "#1B3E5E",
@@ -345,11 +347,11 @@ export default {
               label: {
                 normal: {
                   show: true,
-                  position: "left",
+                  position: "right",
                   color: "#ff0000",
                   formatter: "{b}",
                   textStyle: {
-                    color: "#fff",
+                    color: "#00ffff",
                   },
                 },
                 emphasis: {
@@ -357,7 +359,7 @@ export default {
                 },
               },
               symbol: "pin",
-              symbolSize: 40,
+              symbolSize: 30,
               itemStyle: {
                 normal: {
                   show: true,
@@ -379,36 +381,22 @@ export default {
             formatter: function(params) {
               var tip = "";
               if (that.map == "china") {
-                if (params.name == "湖北") {
-                  tip = `
-                    <div class="box_tip">
-                      <div class="box_head">
-                        <div>湖北省</div>
-                        <div class="w">
-                        <span>多云</span>
-                        <span>12~24℃</span>
-                        <span>空气良好</span>
-                        </div>
-                      </div>
-                      <div class="box_body">
-                          <div> 湖北省，简称“鄂”，中华人民共和国省级行政区，省会武汉。</div>
-                       <div>   地处中国中部地区，东邻安徽，西连重庆，西北与陕西接壤，南接江西、湖南，北与河南毗邻，</div>
-                          <div>介于北纬29°01′53″—33°6′47″、东经108°21′42″—116°07′50″之间，</div>
-                          <div>东西长约740千米，南北宽约470千米，总面积18.59万平方千米，占中国总面积的1.94%。</div>
-                        <div> 
-                        最东端是黄梅县，最西端是利川市，最南端是来凤县，
-                       最北端是郧西县。
-                       </div>
-                      </div>
-                    </div>
-                  `;
+                tip =
+                  params.name +
+                  " : " +
+                  (that.bindData[2][params.name]
+                    ? that.bindData[2][params.name]
+                    : 0);
+              } else {
+                if ((params.name = "湘西土家族苗族自治州")) {
+                  tip = "湘西" + that.bindData[2]["湘西"];
                 } else {
                   tip =
                     params.name +
                     " : " +
-                    (that.bindData[2][params.name]
-                      ? that.bindData[2][params.name]
-                      : 0);
+                    that.bindData[2][params.name.slice(0, -1)]
+                      ? that.bindData[2][params.name.slice(0, -1)]
+                      : 0;
                 }
               }
               return tip;
@@ -418,7 +406,7 @@ export default {
             min: 7,
             max: 60,
             // 显示图例
-            show: false,
+            show: true,
             x: "right",
             y: "bottom",
             splitList: [
@@ -445,8 +433,8 @@ export default {
               },
               emphasis: {},
             },
-            layoutCenter: ["60%", "50%"],
-            layoutSize: this.map == "china" ? "130%" : "90%",
+            layoutCenter: ["50%", "50%"],
+            layoutSize: this.map == "china" ? "120%" : "90%",
           },
           series: series,
         };

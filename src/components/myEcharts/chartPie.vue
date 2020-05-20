@@ -22,9 +22,9 @@
           <span class="data" v-if="type == 'value' || type == 'all'"
             >{{
               item.value > 10000
-                ? (parseInt(item.value) / 10000).toFixed(2) + ""
+                ? (parseInt(item.value) / 10000).toFixed(2) + "万"
                 : item.value
-            }}人</span
+            }}条</span
           >
         </div>
         <div>
@@ -34,10 +34,10 @@
             }}%</span
           >
         </div>
-        <div class="compare" v-if="showRatio">
+        <div class="compare">
           <span>同比:-25%</span> <img src="../../assets/img/down.png" alt="" />
         </div>
-        <div class="compare" v-if="showRatio">
+        <div class="compare">
           <span>环比:+25%</span> <img src="../../assets/img/up.png" alt="" />
         </div>
       </div>
@@ -69,56 +69,52 @@ export default {
         "#c9ab00",
         "#7eb00a",
         "#6f5553",
-        "#c14089",
+        "#c14089"
       ],
-      chart: null,
+      chart: null
     };
   },
   props: {
     type: {
       type: String,
-      default: "all",
+      default: "all"
     },
     bindData: {
       type: Array,
-      default: function() {
+      default: function(value) {
         return [
           {
             name: "正面",
-            value: 36000,
+            value: 36000
           },
           {
             name: "中性",
-            value: 48000,
+            value: 48000
           },
           {
             name: "负面",
-            value: 16000,
-          },
+            value: 16000
+          }
         ];
-      },
-    },
-    showRatio: {
-      type: Boolean,
-      default: true,
-    },
+      }
+    }
   },
   mounted() {
     this.initChartPie(this.bindData);
   },
-  /*  watch: {
+  watch: {
     bindData: function(newValue) {
       this.initChartPie(newValue);
-    },
-  }, */
+    }
+  },
   computed: {
     total() {
       let total = 0;
-      this.bindData.forEach((v) => {
+      this.bindData.forEach(v => {
         total += parseInt(v.value);
       });
       return total;
-    },
+    }
   },
   methods: {
     initChartPie(data) {
@@ -133,13 +129,13 @@ export default {
           left: "center",
           top: 20,
           textStyle: {
-            color: "#ccc",
-          },
+            color: "#ccc"
+          }
         },
 
         tooltip: {
           trigger: "item",
-          formatter: "{b} : {c} ({d}%)",
+          formatter: "{b} : {c} ({d}%)"
         },
 
         visualMap: {
@@ -148,16 +144,29 @@ export default {
           max: 600,
           inRange: {
             //colorLightness: [0, 1]
-          },
+          }
         },
         series: [
           {
             name: "访问来源",
             type: "pie",
-            radius: "90%",
+            radius: "100%",
             center: ["50%", "50%"],
             color: ["#EC991F", "#9132E6", "#F06260"], //'#FBFE27','rgb(11,228,96)','#FE5050'
-            data: this.bindData.sort(function(a, b) {
+            data: [
+              {
+                value: 285,
+                name: "黑名单查询"
+              },
+              {
+                value: 350,
+                name: "红名单查询"
+              },
+              {
+                value: 274,
+                name: "法人行政处罚"
+              }
+            ].sort(function(a, b) {
               return a.value - b.value;
             }),
             roseType: "radius",
@@ -171,49 +180,49 @@ export default {
                     color: "rgb(241,246,104)",
                     fontSize: 20,
                     fontWeight: "bold",
-                    lineHeight: 5,
+                    lineHeight: 5
                   },
                   b: {
                     color: "rgb(98,137,169)",
                     fontSize: 15,
-                    height: 20,
-                  },
-                },
-              },
+                    height: 40
+                  }
+                }
+              }
             },
             labelLine: {
               show: false,
               normal: {
                 lineStyle: {
-                  color: "rgb(98,137,169)",
+                  color: "rgb(98,137,169)"
                 },
                 smooth: 0.2,
                 length: 10,
-                length2: 15,
-              },
+                length2: 20
+              }
             },
             itemStyle: {
               normal: {
                 // shadowColor: "rgba(0, 0, 0, 0.8)",
                 // shadowBlur: 50,
                 label: {
-                  show: false,
+                  show: false
                 },
                 labelLine: {
-                  show: false,
-                },
-              },
-            },
-          },
-        ],
+                  show: false
+                }
+              }
+            }
+          }
+        ]
       };
       this.chart.setOption(option);
       //   window.onresize = this.chart.resize;
       window.addEventListener("resize", () => {
         this.chart.resize();
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -243,12 +252,12 @@ export default {
 .tips {
   .round {
     width: 100%;
-    height: 6px;
+    height: 8px;
     display: block;
   }
   flex: 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   div {
     font-size: 0.4rem;

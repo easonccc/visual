@@ -20,23 +20,7 @@ export default {
     bindData: {
       type: Array,
       default: function(value) {
-        return [
-          [
-            "1月",
-            "2月",
-            "3月",
-            "4月",
-            "5月",
-            "6月",
-            "7月",
-            "8月",
-            "9月",
-            "10月",
-            "11月",
-            "12月",
-          ],
-          [2660, 1802, 601, 870, 680, 1190, 2110, 1590, 1382, 2001, 1854, 1790],
-        ];
+        return value;
       },
     },
     // 折线区域的颜色
@@ -171,7 +155,7 @@ export default {
             type: "category",
             boundaryGap: false,
             axisLabel: {
-              color: "rgba(46,217,253,1)",
+              color: "#fff",
             },
             axisLine: {
               show: true,
@@ -188,23 +172,34 @@ export default {
                 color: "#195384",
               },
             },
-            data: this.bindData[0],
+            data: [
+              "1月",
+              "2月",
+              "3月",
+              "4月",
+              "5月",
+              "6月",
+              "7月",
+              "8月",
+              "9月",
+              "10月",
+              "11月",
+              "12月",
+            ],
           },
         ],
         yAxis: [
           {
             type: "value",
             name: this.yTitle,
-            // interval: 10, //间隔
             axisLabel: {
-              formatter: "{value}万",
+              //   formatter: "{value}",
               show: true,
               textStyle: {
                 color: "#fff",
               },
             },
             axisLine: {
-              show: false,
               lineStyle: {
                 color: "#fff",
               },
@@ -233,11 +228,11 @@ export default {
             symbolSize: 0,
             itemStyle: {
               normal: {
-                color: this.areaStyle[0],
-                /* lineStyle: {
+                color: "#08a2e0",
+                lineStyle: {
                   color: "#08a2e0",
                   width: 1,
-                }, */
+                },
                 areaStyle: {
                   //color: '#94C9EC'
                   color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [
@@ -253,7 +248,20 @@ export default {
                 },
               },
             },
-            data: this.bindData[1],
+            data: [
+              2660,
+              1802,
+              601,
+              870,
+              680,
+              1190,
+              2110,
+              1590,
+              1382,
+              2001,
+              1854,
+              1790,
+            ],
           },
         ],
       };

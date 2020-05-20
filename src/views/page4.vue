@@ -1,55 +1,211 @@
 <template>
   <div class="content">
-    <v-commonTitle title="承载量数据驾驶舱"></v-commonTitle>
-    <div class="body">
-      <div class="flex_left">
-        <div class="item up">
-          <div class="box">
-            <div class="box-head hasTab">
-              <span class="dot"></span><span>景区承载量趋势</span>
-              <div class="tabs">
-                <span
-                  @click="sleType(index)"
-                  v-for="(item, index) in tabsArr"
-                  :key="index"
-                  :class="activeIndex == index ? 'active' : ''"
-                  >{{ item }}</span
-                >
+    <v-commonTitle title="安保数据驾驶舱"></v-commonTitle>
+    <div class="box_c">
+      <div class="box_c">
+        <div class="up">
+          <div
+            class="item1"
+            style="flex: 0.8;background-color: rgba(1, 104, 185, 0.2);"
+          >
+            <div class="up">
+              <div class="up_right">
+                <div class="box">
+                  <div class="box-head">
+                    <span class="dot"></span>场馆安保人员统计
+                  </div>
+                  <div class="box-body">
+                    <v-chartPieColumn
+                      :bindData="bindData"
+                      type="人"
+                      :showPer="false"
+                    ></v-chartPieColumn>
+                  </div>
+                </div>
+              </div>
+              <div class="up_right">
+                <div class="box">
+                  <div class="box-head">
+                    <span class="dot"></span>场馆安保设备统计
+                  </div>
+                  <div class="box-body">
+                    <v-chartPieColumn
+                      :bindData="bindData1"
+                      type=""
+                      :showPer="false"
+                    ></v-chartPieColumn>
+                  </div>
+                </div>
               </div>
             </div>
-            <v-chartPage3Right></v-chartPage3Right>
-          </div>
-        </div>
-        <div class="item down">
-          <div class="box down_item">
-            <div class="box-head">
-              <span class="dot"></span>出境旅游停留时长
+            <div class="down">
+              <div class="box">
+                <div class="box-head">
+                  <span class="dot"></span>场馆游客统计
+                </div>
+                <div class="box-body">
+                  <v-chartLines :bindData="bindData2"></v-chartLines>
+                </div>
+              </div>
             </div>
-            <chart-bar
-              :styleColor="barColor"
-              :paramY="paramY"
-              barWidth="18"
-              :bindData="bindData"
-              :showLine="showLine"
-            />
           </div>
-          <div class="box down_item">
-            <div class="box-head"><span class="dot"></span>出境游国家占比</div>
-            <v-chartPieRadius0
-              :bindData="bindData1"
-              type="人"
-            ></v-chartPieRadius0>
+          <div class="item" style="margin: 0 0.4rem">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>安保设备分布图
+                <div class="floor">
+                  <div class="img">
+                    <img src="../assets/img/安保数据/切换.png" alt="" />
+                  </div>
+                  <div class="text">当前楼层: 2F</div>
+                </div>
+                <div class="cutlinee">
+                  <ul>
+                    <li>
+                      <div class="img">
+                        <img
+                          src="../assets/img/安保数据/摄像头 (1).png"
+                          alt=""
+                        />
+                      </div>
+                      摄像头
+                    </li>
+                    <li>
+                      <div class="img">
+                        <img
+                          src="../assets/img/安保数据/红外报警器.png"
+                          alt=""
+                        />
+                      </div>
+                      红外报警系统
+                    </li>
+                    <li>
+                      <div class="img">
+                        <img
+                          src="../assets/img/安保数据/红外双鉴 (1).png"
+                          alt=""
+                        />
+                      </div>
+                      电子围栏
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="box-body">
+                <!-- <v-mapJk :bindData="jkData"></v-mapJk> -->
+                <bg-jk imgType="device"></bg-jk>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="box-head nobottom">
+                <span class="dot"></span>展示状态预警
+                <el-pagination
+                  small
+                  background
+                  layout="prev, pager, next"
+                  :total="1000"
+                >
+                </el-pagination>
+              </div>
+              <table class="sort">
+                <tr>
+                  <th>序号</th>
+                  <th>展示</th>
+                  <th>展品编码</th>
+                  <th>所属楼层</th>
+                  <th>所属展厅</th>
+                  <th>展品状态</th>
+                </tr>
+                <tr v-for="(v, i) in tableData" :key="i">
+                  <td>{{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}</td>
+                  <td>{{ v.name }}</td>
+                  <td>{{ v.level }}</td>
+                  <td>{{ v.floor }}</td>
+                  <td>{{ v.pos }}</td>
+                  <td :class="v.active == '移动' ? 'active' : ''">
+                    {{ v.active }}
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="flex_right">
-        <div class="box right_item">
-          <div class="box-head"><span class="dot"></span>游客分布热力图</div>
-          <v-mapHeat></v-mapHeat>
-        </div>
-        <div class="box right_item">
-          <div class="box-head"><span class="dot"></span>景区监控分布图</div>
-          <v-mapJk :bindData="jk"></v-mapJk>
+        <div class="down">
+          <div
+            class="item"
+            style="flex: 0.8;background-color: rgba(1, 104, 185, 0.2);"
+          >
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>人员流动热力图
+                <div class="floor">
+                  <div class="img">
+                    <img src="../assets/img/安保数据/切换.png" alt="" />
+                  </div>
+                  <div class="text">当前楼层: 2F</div>
+                </div>
+              </div>
+              <v-mapHeat></v-mapHeat>
+            </div>
+          </div>
+          <div class="item" style="margin: 0 0.4rem">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>安保人员分布图
+                <div class="floor">
+                  <div class="img">
+                    <img src="../assets/img/安保数据/切换.png" alt="" />
+                  </div>
+                  <div class="text">当前楼层: 2F</div>
+                </div>
+              </div>
+              <div class="box-body">
+                <!-- <v-mapPeople></v-mapPeople> -->
+                <bg-jk imgType="person"></bg-jk>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="box-head nobottom">
+                <span class="dot"></span>安保设备状态数据
+                <el-pagination
+                  small
+                  background
+                  layout="prev, pager, next"
+                  :total="1000"
+                >
+                </el-pagination>
+              </div>
+              <table class="sort">
+                <tr>
+                  <th>序号</th>
+                  <th>设备分类</th>
+                  <th>设备名称</th>
+                  <th>设备编码</th>
+                  <th>所属楼层</th>
+                  <th>所属展厅</th>
+                  <th>设备状态</th>
+                </tr>
+                <tr v-for="(v, i) in tableData2" :key="i">
+                  <td>{{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}</td>
+                  <td>{{ v.type }}</td>
+                  <td>{{ v.name }}</td>
+                  <td>{{ v.num }}</td>
+                  <td>{{ v.floor }}</td>
+                  <td>{{ v.ting }}</td>
+                  <td
+                    :class="v.active == '设备预警' ? 'active' : ''"
+                    :id="v.active == '设备故障' ? 'active2' : ''"
+                  >
+                    {{ v.active }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -57,201 +213,425 @@
 </template>
 
 <script>
-import chartPage3Right from "../components/element/chartPage3Right";
-import chartPieRadius0 from "../components/element/chartPieRadius0";
-import mapHeat from "../components/map/mapHeat";
+import chartPieColumn from "../components/element/chartPieColumn";
+import chartList from "../components/element/chartList";
+import chartPage4Right from "../components/element/chartPage4Right";
+import chartLines from "../components/element/chartLines";
 import mapJk from "../components/map/mapJk";
-import ChartBar from "../components/myEcharts/chartBar";
-
+import mapPeople from "../components/map/mapPeople";
+import mapHeat from "../components/map/mapHeat";
+import map from "../components/mymap/map";
+import bgJk from "../components/indoor/bg_jk";
 export default {
   name: "page1",
   data() {
     return {
-      activeIndex: 3,
-      tabsArr: ["木兰天池", "三峡人家", "三峡大坝", "屈原故里", "柴埠溪"],
-      paramY: {
-        unit: "小时",
-        max: "20",
-      },
-      showLine: {
-        hasLine: true,
-        color: "red",
-        y: 72,
-      },
       bindData: [
-        [
-          "美国",
-          "英国",
-          "日本",
-          "澳洲",
-          "德国",
-          "俄罗斯",
-          "韩国",
-          "法国",
-          "意大利",
-          "加拿大",
-          "其他国家",
-        ],
-        ["145", "133", "121", "108", "99", "88", "75", "69", "70", "59", "50"],
+        {
+          name: "全部安保人员",
+          value: 50,
+          value2: 50,
+        },
+        {
+          name: "在职安保人员",
+          value: 30,
+          value2: 30,
+        },
       ],
       bindData1: [
         {
-          name: "美国",
-          value: 8620,
-          value2: 8620,
+          name: "在线安保设备",
+          value: 50,
+          value2: 50,
         },
         {
-          name: "英国",
-          value: 9809,
-          value2: 9809,
+          name: "离线安保设备",
+          value: 30,
+          value2: 30,
         },
         {
-          name: "日本",
-          value: 7868,
-          value2: 7868,
-        },
-        {
-          name: "澳洲",
-          value: 5890,
-          value2: 5890,
-        },
-        {
-          name: "俄罗斯",
-          value: 6880,
-          value2: 6880,
-        },
-        {
-          name: "韩国",
-          value: 7868,
-          value2: 7868,
-        },
-        {
-          name: "法国",
-          value: 5890,
-          value2: 5890,
-        },
-        {
-          name: "意大利",
-          value: 6880,
-          value2: 6880,
-        },
-        {
-          name: "加拿大",
-          value: 7868,
-          value2: 7868,
-        },
-        {
-          name: "其他国家",
-          value: 5890,
-          value2: 5890,
+          name: "故障安保设备",
+          value: 20,
+          value2: 20,
         },
       ],
-      barColor: [
-        ["rgba(255,88,88,1)", "rgba(255,88,88,0.3)"],
-        ["rgba(255,224,88,1)", "rgba(255,224,88,0.3)"],
-        ["rgba(225,88,255,1)", "rgba(225,88,255,0.3)"],
-        ["rgba(88,255,255,1)", "rgba(88,255,255,0.3)"],
-        ["rgba(119,255,88,1)", "rgba(119,255,88,0.3)"],
-        ["rgba(88,112,255,1)", "rgba(88,112,255,0.3)"],
-        ["rgba(255,159,88,1)", "rgba(255,159,88,0.3)"],
-        ["rgba(88,187,255,1)", "rgba(88,187,255,0.3)"],
-        ["rgba(220,234,200,1)", "rgba(220,234,200,1)"],
-        ["rgba(245,195,245,1)", "rgba(245,195,245,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(183,221,244,1)", "rgba(183,221,244,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
+      bindData2: [
+        [
+          "8:00",
+          "9:00",
+          "10:00",
+          "11:00",
+          "12:00",
+          "13:00",
+          "14:00",
+          "15:00",
+          "16:00",
+          "17:00",
+          "18:00",
+          "19:00",
+          "20:00",
+        ],
+        [
+          {
+            name: "在馆人数",
+            value: [
+              100,
+              90,
+              200,
+              1950,
+              2333,
+              2451,
+              3333,
+              4513,
+              2498,
+              1065,
+              3324,
+              1354,
+              300,
+              900,
+            ],
+          },
+          {
+            name: "排队人数",
+            value: [
+              1100,
+              1200,
+              2700,
+              3950,
+              4567,
+              2451,
+              3755,
+              5523,
+              3412,
+              4444,
+              7534,
+              1247,
+              300,
+              900,
+            ],
+          },
+        ],
       ],
-      jk: null,
+      tableData: [
+        {
+          name: "鱼龙",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "移动",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "移动",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "移动",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+        {
+          name: "中生代",
+          level: "1028",
+          floor: "一层",
+          pos: "开辟鸿蒙",
+          active: "正常",
+        },
+      ],
+      tableData2: [
+        {
+          type: "摄像头",
+          name: "红外日夜两用摄像机",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "设备故障",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "红外日夜两用摄像机",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "设备预警",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "半球型摄像机",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "设备预警",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "高速球摄像机",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "红外探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "红外探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "红外探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "热探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "热探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+        {
+          type: "摄像头",
+          name: "热探测器",
+          floor: "一层",
+          ting: "开辟鸿蒙",
+          active: "正常",
+          num: "rd012",
+        },
+      ],
+      jkData: null,
     };
   },
+  computed: {},
   created() {
     this.getJkData();
   },
   methods: {
     async getJkData() {
-      const data = await http.get("./data/dataVisitor.json");
-      this.jk = data;
-    },
-    sleType(index) {
-      this.activeIndex = index;
+      const data = await http.get("./data/dataVisitor1.json");
+      this.jkData = data;
+      console.log(this.jkData);
     },
   },
   components: {
-    "v-chartPage3Right": chartPage3Right,
-    ChartBar,
-    "v-chartPieRadius0": chartPieRadius0,
-    "v-mapHeat": mapHeat,
+    "v-chartPieColumn": chartPieColumn,
+    "v-chartList": chartList,
+    "v-chartPage4Right": chartPage4Right,
     "v-mapJk": mapJk,
+    "v-mapHeat": mapHeat,
+    "v-mapPeople": mapPeople,
+    "v-chartLines": chartLines,
+    "v-map": map,
+    bgJk,
   },
 };
 </script>
 
 <style lang="less" scoped>
-.body {
-  margin-top: 0.2rem;
+.box_c {
   flex: 1;
   display: flex;
-  .flex_left {
-    margin-right: 0.4rem;
-    flex: 5;
+  .box_c {
+    flex: 1;
     display: flex;
+    margin-top: 0.4rem;
     flex-direction: column;
     .up {
-      height: 50%;
-      .hasTab {
-        display: flex;
-        .tabs {
-          margin-left: auto;
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 0.45rem;
-          .active {
-            color: #fff;
-          }
-          span {
-            margin-left: 0.3rem;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-    .down {
+      flex: 1;
       display: flex;
-      margin-top: 0.4rem;
-      .down_item {
-        width: 50%;
-        flex: 0.7;
-        &:first-child {
-          margin-right: 0.4rem;
-          flex: 1;
+
+      .item1 {
+        display: flex;
+        flex-direction: column;
+        .up {
+          display: flex;
+          .up_right {
+            flex: 1;
+            &:first-child {
+              margin-right: 0.4rem;
+            }
+          }
         }
       }
     }
     .item {
       flex: 1;
-    }
-  }
-  .flex_right {
-    flex: 3;
-    display: flex;
-    flex-direction: column;
-    .right_item {
-      &:first-child {
-        height: 40%;
-        margin-bottom: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      .box {
+        .box-head {
+          .floor {
+            float: right;
+            width: 21%;
+            .img {
+              width: 0.7rem;
+              cursor: pointer;
+              float: left;
+              margin-right: 0.5rem;
+              img {
+                width: 100%;
+              }
+            }
+          }
+          .cutlinee {
+            ul {
+              display: flex;
+              margin: 0.4rem 0;
+              li {
+                display: flex;
+                justify-content: center;
+                font-size: 0.4rem;
+                align-items: center;
+                color: #fff;
+                margin-right: 1rem;
+                .img {
+                  width: 1rem;
+                  margin-right: 0.2rem;
+                  img {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+          .el-pagination {
+            float: right;
+          }
+        }
+        .box-head.nobottom {
+          margin-bottom: 0;
+          /deep/
+            .el-pagination.is-background
+            .el-pager
+            li:not(.disabled).active {
+            background-color: #23add1; // 进行修改背景和字体
+            color: #fff;
+            font-weight: 300;
+          }
+          /deep/ .el-pagination.is-background .el-pager li:not(.disabled) {
+            background-color: #0b5b84;
+            color: #fff;
+            font-weight: 300;
+          }
+          /deep/ .el-pagination.is-background.el-pagination--small .btn-prev {
+            background-color: #0b5b84;
+          }
+          /deep/ .el-pagination.is-background.el-pagination--small .btn-next {
+            background-color: #0b5b84;
+          }
+        }
+        .sort {
+          margin-top: 0.5rem;
+          font-size: 0.32rem;
+          color: #fff;
+          th,
+          tr:first-child td {
+            background: rgba(35, 173, 209, 1);
+            border: 0.02rem solid rgba(42, 204, 240, 1);
+          }
+          th,
+          td {
+            padding: 0.35rem 0.32rem;
+          }
+          .active {
+            color: #ec991f;
+          }
+          #active2 {
+            color: #d0021b;
+          }
+          td {
+            text-align: center;
+            background: rgba(46, 217, 253, 0.2);
+            border: 0.02rem solid rgba(42, 204, 240, 1);
+          }
+        }
+        .box-body {
+        }
       }
-      &:last-child {
+    }
+    .down {
+      margin: 0.4rem 0 0 0;
+      flex: 1;
+      display: flex;
+      .box {
         flex: 1;
       }
+      .item {
+        flex: 1;
+      }
+    }
+    .right_item {
+      flex: 1;
+      display: flex;
+      margin-bottom: 0.4rem;
+      background-color: rgba(1, 104, 185, 0.2);
     }
   }
 }

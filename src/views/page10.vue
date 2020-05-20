@@ -1,52 +1,50 @@
 <template>
   <div class="content">
-    <v-commonTitle title="酒店数据驾驶舱"></v-commonTitle>
-    <div class="box_r">
-      <div class="box_flex1">
-        <div class="box">
-          <div class="box-head">
-            <span class="dot"></span>年酒店销量产品数量TOP10
+    <v-commonTitle title="舆情数据驾驶舱"></v-commonTitle>
+    <div class="top">
+      <div class="left box">
+        <div class="infoBox box">
+          <div class="title box-head">
+            <span class="dot"></span>
+            <span> 舆情总量(条):</span> <span>时间:2018年11月3日</span>
           </div>
-          <v-chartList
-            :unit="unit"
-            :bindData="bindData"
-            :show="false"
-          ></v-chartList>
+          <div class="numBox">
+            <div v-for="(v, i) in numArr1" :key="i">{{ v }}</div>
+          </div>
         </div>
-        <div class="box" style="margin-top:0.4rem">
+        <div class="box item">
           <div class="box-head">
-            <span class="dot"></span>全省酒店销售量产品入住情况
-            <el-pagination
-              small
-              background
-              layout="prev, pager, next"
-              :total="1000"
-            >
-            </el-pagination>
+            <span class="dot"></span>
+            <span> 舆情占比</span>
           </div>
-
-          <table class="sort">
-            <tr>
-              <th>序号</th>
-              <th>入住起止日期</th>
-              <th>旅行社名称</th>
-              <th>入住酒店</th>
-              <th>入住总人数</th>
-              <th>导游人数</th>
-              <th>司乘人数</th>
-              <th>游客人数</th>
-            </tr>
-            <tr v-for="(v, i) in tableData" :key="i">
-              <td>{{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}</td>
-              <td>{{ v.data1 }}</td>
-              <td>{{ v.name }}</td>
-              <td>{{ v.floor }}</td>
-              <td>{{ v.ting }}</td>
-              <td>{{ v.num1 }}</td>
-              <td>{{ v.num2 }}</td>
-              <td>{{ v.data1 }}</td>
-            </tr>
-          </table>
+          <chart-pie></chart-pie>
+        </div>
+        <div class="box item" style="margin-top:0.4rem;">
+          <div class="box-head">
+            <span class="dot"></span>
+            <span> 舆情渠道占比</span>
+          </div>
+          <chart-circle :bindData="bindData" type="percent"></chart-circle>
+        </div>
+      </div>
+      <div class="right box">
+        <div class="box-head">
+          <span class="dot"></span>
+          <span> 舆情列表</span>
+          <div class="yqBox">
+            <div class="box2">
+              <div class="title">正面舆情</div>
+              <table-diy :bindData="tableData1"></table-diy>
+            </div>
+            <div class="box2">
+              <div class="title">中性舆情</div>
+              <table-diy :bindData="tableData2"></table-diy>
+            </div>
+            <div class="box2">
+              <div class="title">负面舆情</div>
+              <table-diy :bindData="tableData3"></table-diy>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,233 +52,355 @@
 </template>
 
 <script>
-import chartList from "../components/element/chartList";
+import ChartBar from "../components/myEcharts/chartBar2";
+import ChartTrend from "../components/myEcharts/chartTrend";
+import ChartBar2 from "../components/myEcharts/chartBarH";
+import ChartPie from "../components/myEcharts/chartPie";
+import ChartCircle from "../components/myEcharts/chartCircle";
+import TableDiy from "../components/table/tableDiy";
 export default {
   name: "page1",
   data() {
     return {
-      title: "",
-      width: "100%",
-      height: "100%",
-      tableData: [
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-        {
-          type: "养生大九湖休闲3日2万跟团游",
-          name: "宜旅假日国际旅行社",
-          floor: "武汉恒大酒店",
-          ting: "126",
-          active: "湖北宜昌神农架",
-          num1: "4",
-          num2: "2",
-          data1: "120",
-          data2: "2020-04-18",
-        },
-      ],
+      numArr1: ["-", "-", "-", "5", "4", "2", "9", "9", "9"],
       bindData: [
         {
-          name: "武汉恒大酒店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [10, 30, 32, 28],
+          name: "论坛",
+          value: 10,
+          value2: 10000
         },
         {
-          name: "武汉恒大酒店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [12, 30, 32, 26],
+          name: "评论",
+          value: 30,
+          value2: 30000
         },
         {
-          name: "武汉恒大酒店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18],
+          name: "微博",
+          value: 38,
+          value2: 38000
         },
         {
-          name: "武汉恒大酒店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18],
+          name: "微信平台",
+          value: 16,
+          value2: 16000
         },
         {
-          name: "武汉恒大酒店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18],
-        },
+          name: "新闻网站",
+          value: 6,
+          value2: 6000
+        }
       ],
-      unit: {
-        unit: "间",
-        legendArr: ["标间", "三人间", "双人间", "大床房"],
+      tableData1: {
+        showIndex: false,
+        headData: ["发表时间", "舆情类别", "平台", "内容"],
+        tableData: [
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: true
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          }
+        ],
+        thbg: "rgba(240,98,96,0.3)",
+        tdbg: "rgba(46,217,253,0.2)",
+        tdbor: "0.02rem solid rgba(240,98,96,1)"
       },
+      tableData2: {
+        showIndex: false,
+        headData: ["发表时间", "舆情类别", "平台", "内容"],
+        tableData: [
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: true
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          }
+        ],
+        thbg: "rgba(236,153,31,0.3)",
+        tdbg: "rgba(236,153,31,0.2)",
+        tdbor: "0.02rem solid rgba(236,153,31,1)"
+      },
+      tableData3: {
+        showIndex: false,
+        headData: ["发表时间", "舆情类别", "平台", "内容"],
+        tableData: [
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微博",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "微信公众号",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: true
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          },
+          {
+            city: "2018.11.10 12:56",
+            pro: "正面",
+            area: "评论",
+            level:
+              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
+            active: false
+          }
+        ],
+        thbg: "rgba(31,108,255,0.3)",
+        tdbg: "rgba(31,108,255,0.2)",
+        tdbor: "0.02rem solid rgba(31,108,255,1)"
+      }
     };
   },
-  created() {},
-  methods: {},
   components: {
-    "v-chartList": chartList,
-  },
+    ChartBar,
+    ChartTrend,
+    ChartPie,
+    ChartCircle,
+    TableDiy,
+    ChartBar2
+  }
 };
 </script>
 
 <style lang="less" scoped>
-.box_r {
-  flex: 1;
+.top {
   display: flex;
-  .box_flex1 {
+  flex: 1;
+  > div {
+    margin-right: 0.4rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .left {
     flex: 1;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    .box {
-      &:first-child {
-        height: 42%;
-      }
-      &:last-child {
-        flex: 1;
-      }
-      .box-head {
-        margin-bottom: 0.1rem;
-        width: 100%;
-        .el-pagination {
+    .infoBox {
+      height: 16%;
+      margin-bottom: 0.4rem;
+    }
+    .title {
+      font-size: 0.32rem;
+      margin-bottom: 0.4rem;
+      span {
+        &:last-child {
           float: right;
         }
-        /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
-          background-color: #23add1; // 进行修改背景和字体
-          color: #fff;
-          font-weight: 300;
-        }
-        /deep/ .el-pagination.is-background .el-pager li:not(.disabled) {
-          background-color: #0b5b84;
-          color: #fff;
-          font-weight: 300;
-        }
-        /deep/ .el-pagination.is-background.el-pagination--small .btn-prev {
-          background-color: #0b5b84;
-        }
-        /deep/ .el-pagination.is-background.el-pagination--small .btn-next {
-          background-color: #0b5b84;
-        }
       }
-      .sort {
-        font-size: 0.32rem;
-        color: #fff;
-        th,
-        tr:first-child td {
-          background: rgba(46, 217, 253, 0.4);
-          border: 0.02rem solid rgba(42, 204, 240, 1);
+    }
+    .trendBox {
+      font-size: 0.4rem;
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .numBox {
+      font-family: "lcd";
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      margin: 0.6rem 0.3rem;
+      > div {
+        height: 1.2rem;
+        padding: 0.15rem;
+        padding-right: 0.2rem;
+        background: rgba(24, 62, 95, 0.6);
+        box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
+          0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
+        display: flex;
+        align-items: center;
+      }
+    }
+    .item {
+      flex: 1;
+    }
+  }
+  .right {
+    flex: 2.6;
+    .yqBox {
+      .box2 {
+        &:nth-child(1) .title {
+          color: #f06260;
         }
-        th,
-        td {
-          padding: 0.5rem 0.32rem;
-        }
-        .active {
+
+        &:nth-child(2) .title {
           color: #ec991f;
         }
-        #active2 {
-          color: #d0021b;
+
+        &:nth-child(3) .title {
+          color: #1f6cff;
         }
-        td {
+
+        .title {
           text-align: center;
-          background: rgba(46, 217, 253, 0.2);
-          border: 0.02rem solid rgba(42, 204, 240, 1);
+          font-size: 0.3rem;
+          padding: 0.2rem 0;
         }
+
+        background: rgba(3, 65, 109, 1);
+        border: 0.01rem solid rgba(255, 255, 255, 0.2);
       }
     }
   }

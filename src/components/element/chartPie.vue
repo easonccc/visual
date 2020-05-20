@@ -24,11 +24,11 @@ export default {
   data() {
     return {
       colors: [
-        "#FC5396",
-        "#BA85F4",
-        "#31E0D5",
-        "#FF6F5C",
-        "#68DE7B",
+        "#17abff",
+        "#ec7f12",
+        "#7d66ff",
+        "#20d271",
+        "#d3d91d",
         "#97b552",
         "#95706d",
         "#dc69aa",
@@ -101,7 +101,7 @@ export default {
           {
             name: "数量",
             type: "pie",
-            radius: ["68%", "85%"],
+            radius: ["65%", "85%"],
 
             itemStyle: {
               normal: {

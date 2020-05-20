@@ -17,7 +17,7 @@
       </div>
     </transition>
     <div class="header">
-      <div class="header_left">湖北省旅游产业运行监测中心</div>
+      <div class="header_left">宜昌市博物馆运行监测中心</div>
       <div class="header_right">
         <div class="right_center">
           <span>2020年04月01日 星期三</span>
@@ -51,46 +51,28 @@ export default {
           name: "客流数据驾驶舱",
         },
         {
-          name: "游客画像数据驾驶舱",
-        },
-        {
-          name: "承载量数据驾驶舱",
-        },
-        {
           name: "车流数据驾驶舱",
         },
         {
-          name: "消费数据驾驶舱",
+          name: "安保数据驾驶舱",
         },
         {
-          name: "旅行社数据驾驶舱",
+          name: "环境监测数据驾驶舱",
         },
         {
-          name: "旅行团数据驾驶舱",
+          name: "事件数据驾驶舱",
         },
         {
-          name: "酒店概况数据驾驶舱",
+          name: "通讯数据驾驶舱",
         },
         {
-          name: "酒店销售数据驾驶舱",
-        },
-        {
-          name: "涉旅企业数据驾驶舱",
-        },
-        {
-          name: "满意度数据驾驶舱",
+          name: "关注度数据驾驶舱",
         },
         {
           name: "投诉数据驾驶舱",
         },
         {
-          name: "电商OTA数据驾驶舱",
-        },
-        {
           name: "舆情数据驾驶舱",
-        },
-        {
-          name: "景区数据驾驶舱",
         },
       ],
     };
@@ -123,8 +105,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: url(/img/bg.png);
-  background-size: 100% 100%;
 }
 .settingBox {
   width: 100vw;
@@ -142,7 +122,7 @@ body {
     width: 90%;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: repeat(auto-fill, 8.8rem);
+    grid-template-columns: repeat(auto-fill, 9rem);
     grid-gap: 3.12rem;
   }
 

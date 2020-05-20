@@ -192,7 +192,7 @@ export default {
       that.map = new AMap.Map("mapBox", {
         resizeEnable: true,
         center: [111.380447, 30.633675],
-        zoom: 12,
+        zoom: 17,
         // mapStyle: "amap://styles/darkblue"
       });
       /*    var indoor = new AMap.IndoorMap({
@@ -237,13 +237,15 @@ export default {
             myIcon = new AMap.Icon({
               image: that.bj0Png,
 
-              size: new AMap.Size(90, 90),
+              size: new AMap.Size(40, 40),
+              imageSize: new AMap.Size(40, 40),
             });
             break;
           case "bj1":
             myIcon = new AMap.Icon({
               image: that.bj1Png,
-              size: new AMap.Size(90, 90),
+              size: new AMap.Size(40, 40),
+              imageSize: new AMap.Size(40, 40),
             });
             break;
           case "pm":

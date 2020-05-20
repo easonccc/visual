@@ -1,200 +1,211 @@
 <template>
   <div class="content">
-    <v-commonTitle title="旅行社数据驾驶舱"></v-commonTitle>
-    <div class="box_u">
+    <v-commonTitle title="通讯数据驾驶舱"></v-commonTitle>
+    <div class="box_r">
       <div
         class="box_flex1"
-        style="margin-right: 0.4rem;background-color: rgba(1, 104, 185, 0.2);"
+        style="margin: 0 0.4rem;background-color: rgba(1, 104, 185, 0.2);"
       >
-        <div class="item">
-          <div class="mapNumber">
-            <div class="up">
-              <span>辖区内注册登记旅行社数量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>2</span>
-              <span>3</span>
-              <span>5</span>
-              <span>4</span>
-              <span>2</span>
-              <span>9</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 0.2%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>注册登记的旅行社大巴数量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>注册登记的大巴司机数量:</span>
-            </div>
-            <div class="down">
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
+        <div class="box-head"><span class="dot"></span>固定通讯</div>
+        <div class="up box">
+          <div class="box-body">
+            <ul>
+              <li>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/quanbuyingyong.png" alt="" />
+                  <div class="name">总坐席:</div>
+                  <div class="count">64</div>
+                </div>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/yonghuzaixian.png" alt="" />
+                  <div class="name">在线坐席:</div>
+                  <div class="count">50</div>
+                </div>
+              </li>
+              <li>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/gongyong-huru.png" alt="" />
+                  <div class="name">呼入:</div>
+                  <div class="count">20</div>
+                </div>
+                <div class="item">
+                  <img
+                    src="../assets/img/通讯数据/gongyong-huru(1).png"
+                    alt=""
+                  />
+                  <div class="name">呼出:</div>
+                  <div class="count">36</div>
+                </div>
+              </li>
+              <li>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/tixing.png" alt="" />
+                  <div class="name">事件数:</div>
+                  <div class="count">5</div>
+                </div>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/等待.png" alt="" />
+                  <div class="name">处理中:</div>
+                  <div class="count">2</div>
+                </div>
+                <div class="item">
+                  <img src="../assets/img/通讯数据/wancheng.png" alt="" />
+                  <div class="name">已完成:</div>
+                  <div class="count">1</div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="item">
-          <div class="mapNumber">
-            <div class="up">
-              <span>注册登记的导游数据:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>2</span>
-              <span>3</span>
-              <span>5</span>
-              <span>4</span>
-              <span>2</span>
-              <span>9</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 0.2%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
+        <div class="box down">
+          <div class="box-top">
+            <div class="status_title">坐席状态:</div>
+            <div class="status_desc">
+              <span>通话</span>
+              <span>在线</span>
+              <span>离线</span>
             </div>
           </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>2020年累计接待团队游客数量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
+          <div class="box-body">
+            <div
+              class="seat_item"
+              v-for="(item, index) in seatData"
+              :key="index"
+              :class="item.status == 'working' ? 'bgc_blue' : 'bgc_green'"
+              :id="item.status == 'offline' ? 'bgc_grey' : ''"
+            >
+              <div class="item_header">
+                <img :src="item.src2" alt="" />
+                <img v-if="item.status === 'working'" :src="item.src1" alt="" />
               </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
+              <div class="item_body">
+                <div class="seat_num">坐席号: {{ item.seat_num }}</div>
+                <div class="work_num">工号: {{ item.work_num }}</div>
               </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>正在销售的团队游产品数量:</span>
-            </div>
-            <div class="down">
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
+              <div v-if="item.status == 'working'" class="item_footer">
+                {{ item.time }}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="box_flex2">
-        <div class="flex2_left">
-          <div class="up">
-            <div class="box">
-              <div class="box-head count_head">
-                <span class="dot"></span>
-                <span>各旅行社大巴车数量排行TOP10</span>
-                <div class="count">总数：{{ carSum }} 辆</div>
+
+      <div class="box_flex2" style="background-color: rgba(1, 104, 185, 0.2);">
+        <div class="box">
+          <div class="box-head">
+            <span class="dot"></span>通讯列表
+            <div class="head_right" style="float:right">
+              <div class="picker">
+                时间 :
+                <el-date-picker
+                  type="daterange"
+                  range-separator="至"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                >
+                </el-date-picker>
               </div>
-              <v-chartPie :bindData="bindData1" type="辆"></v-chartPie>
+              <div class="select">
+                类型:
+                <el-select placeholder="全部">
+                  <el-option> </el-option>
+                </el-select>
+              </div>
             </div>
+          </div>
+          <div class="box-body">
+            <el-table
+              :data="tableData1"
+              style="width: 100%"
+              header-row-style="tableOptions"
+              height="100%"
+              fit
+              border
+            >
+              <el-table-column label="序号" type="index"> </el-table-column>
+              <el-table-column label="记录时间" prop="time" width="160">
+              </el-table-column>
+              <el-table-column label="通讯类型" prop="type" width="150">
+              </el-table-column>
+              <el-table-column label="通讯内容" prop="content" width="300">
+              </el-table-column>
+              <el-table-column label="事件处理状态" prop="status">
+                <template scope="scope">
+                  <span
+                    v-if="scope.row.status === '待处理'"
+                    style="color: #EC991F"
+                    >{{ scope.row.status }}</span
+                  >
+                  <span
+                    v-else-if="scope.row.status === '已处理'"
+                    style="color: #20A7CA"
+                    >{{ scope.row.status }}</span
+                  >
+                </template>
+              </el-table-column>
+              <el-table-column label="操作" type="expand">
+                <template slot-scope="props">{{ props.row.desc }}</template>
+              </el-table-column>
+            </el-table>
           </div>
         </div>
       </div>
-    </div>
-    <div class="box_d">
-      <div class="box_flex4" style="flex:2.5">
-        <div class="item">
-          <div class="box">
-            <div class="box-head picker_item">
-              <span class="dot"></span>
-              各旅行社产品均价走势
+      <div class="box_flex1" style="flex: 1">
+        <div class="box" style="padding: 0 0.2rem 0;">
+          <div class="box-head"><span class="dot"></span>移动通讯</div>
+          <div class="up box">
+            <div class="box-body">
+              <ul>
+                <li class="right-li">
+                  <div class="item">
+                    <img
+                      src="../assets/img/通讯数据/quanbuyingyong.png"
+                      alt=""
+                    />
+                    <div class="name">总移动设备:</div>
+                    <div class="count">58</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="item">
+                    <img
+                      src="../assets/img/通讯数据/gongyong-huru.png"
+                      alt=""
+                    />
+                    <div class="name">通话数量:</div>
+                    <div class="count">28</div>
+                  </div>
+                  <div class="item">
+                    <img
+                      src="../assets/img/通讯数据/dengdaizhongbeifen.png"
+                      alt=""
+                    />
+                    <div class="name">空闲数量:</div>
+                    <div class="count">30</div>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <v-chartLines
-              :bindData="bindData2"
-              :showLine="showLine"
-              :paramY="paramY"
-            ></v-chartLines>
+          </div>
+          <div class="box down">
+            <div class="box-top">
+              <div class="status_title">设备状态:</div>
+              <div class="status_desc">
+                <span>通话中</span>
+                <span>空闲</span>
+              </div>
+            </div>
+            <div class="box-body mobile_body">
+              <div
+                class="mobile"
+                v-for="(item, index) in mobileData"
+                :key="index"
+              >
+                <img :src="item.src" alt="" />
+                <div class="name">{{ item.name }}</div>
+                <div class="role">{{ item.role }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -203,630 +214,1048 @@
 </template>
 
 <script>
-import chartPie from "../components/element/chartPie";
-import chartLines from "../components/element/chartLines";
-
+// 引入图片
+import src1 from "../assets/img/通讯数据/形状(1).png";
+import src2 from "../assets/img/通讯数据/形状.png";
+import src3 from "../assets/img/通讯数据/手机.png";
 export default {
   name: "page1",
   data() {
     return {
-      paramY: {
-        unitY: "元",
-        titleY: "价格   ----    基准线   均价：215元",
-      },
-      showLine: {
-        hasLine: true,
-        color: "#FFF",
-        // 中位线的坐标
-        y: 215,
-        namePadding: [0, 0, 0, 140],
-      },
-      bindData1: [
+      seatData: [
         {
-          name: "鄂旅投旅行社",
-          value: 8,
-          value2: 168,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "武汉旅行社",
-          value: 26,
-          value2: 156,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "武昌旅行社",
-          value: 28,
-          value2: 140,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "宜昌旅行社",
-          value: 26,
-          value2: 140,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "孝感旅行社",
-          value: 26,
-          value2: 139,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "鄂州旅行社",
-          value: 26,
-          value2: 128,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "襄阳旅行社",
-          value: 26,
-          value2: 126,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "黄冈旅行社",
-          value: 26,
-          value2: 120,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "恩施旅行社",
-          value: 26,
-          value2: 118,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "working",
         },
         {
-          name: "随州旅行社",
-          value: 26,
-          value2: 112,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
         },
         {
-          name: "其他",
-          value: 36,
-          value2: 870,
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "online",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
+        },
+        {
+          src1: src1,
+          src2: src2,
+          seat_num: "01",
+          work_num: "4556",
+          time: "00:12:25",
+          status: "offline",
         },
       ],
-      bindData2: [
-        [
-          "1月",
-          "",
-          "2月",
-          "",
-          "3月",
-          "",
-          "4月",
-          "",
-          "5月",
-          "",
-          "6月",
-          "",
-          "7月",
-          "",
-          "8月",
-          "",
-          "9月",
-          "",
-          "10月",
-          "",
-          "11月",
-          "",
-          "12月",
-        ],
-        [
-          {
-            name: "鄂旅投旅行社",
-            value: [
-              150,
-              150,
-              150,
-              175,
-              175,
-              160,
-              160,
-              160,
-              160,
-              150,
-              165,
-              165,
-              150,
-              150,
-              150,
-              150,
-              150,
-              150,
-              130,
-              130,
-              150,
-              150,
-              150,
-              150,
-            ],
-          },
-          {
-            name: "武汉旅行社",
-            value: [
-              200,
-              200,
-              200,
-              230,
-              230,
-              220,
-              220,
-              220,
-              220,
-              200,
-              220,
-              220,
-              200,
-              200,
-              200,
-              200,
-              200,
-              200,
-              150,
-              150,
-              200,
-              200,
-              200,
-              200,
-            ],
-          },
-          {
-            name: "武昌旅行社",
-            value: [
-              221,
-              221,
-              221,
-              230,
-              230,
-              200,
-              200,
-              200,
-              200,
-              221,
-              165,
-              165,
-              221,
-              221,
-              221,
-              221,
-              221,
-              221,
-              170,
-              170,
-              221,
-              221,
-              221,
-              221,
-            ],
-          },
-          {
-            name: "宜昌旅行社",
-            value: [
-              160,
-              160,
-              160,
-              185,
-              185,
-              160,
-              160,
-              160,
-              160,
-              160,
-              175,
-              175,
-              160,
-              160,
-              160,
-              160,
-              160,
-              160,
-              140,
-              140,
-              160,
-              160,
-              160,
-              160,
-            ],
-          },
-          {
-            name: "孝感旅行社",
-            value: [
-              155,
-              155,
-              155,
-              180,
-              180,
-              165,
-              165,
-              165,
-              165,
-              155,
-              165,
-              165,
-              155,
-              155,
-              155,
-              155,
-              155,
-              155,
-              135,
-              135,
-              155,
-              155,
-              155,
-              155,
-            ],
-          },
-          {
-            name: "鄂州坝旅行社",
-            value: [
-              200,
-              200,
-              200,
-              300,
-              300,
-              300,
-              160,
-              180,
-              180,
-              150,
-              165,
-              165,
-              150,
-              220,
-              200,
-              150,
-              220,
-              150,
-              260,
-              260,
-              250,
-              150,
-              150,
-              150,
-            ],
-          },
-          {
-            name: "襄阳旅行社",
-            value: [
-              130,
-              130,
-              130,
-              169,
-              169,
-              160,
-              160,
-              160,
-              160,
-              130,
-              150,
-              150,
-              130,
-              130,
-              130,
-              130,
-              130,
-              130,
-              110,
-              110,
-              130,
-              130,
-              130,
-              130,
-            ],
-          },
-          {
-            name: "黄冈旅行社",
-            value: [
-              185,
-              185,
-              185,
-              160,
-              160,
-              146,
-              146,
-              146,
-              146,
-              185,
-              165,
-              165,
-              185,
-              185,
-              185,
-              185,
-              185,
-              185,
-              130,
-              130,
-              185,
-              185,
-              185,
-              185,
-            ],
-          },
-          {
-            name: "恩施旅行社",
-            value: [
-              142,
-              142,
-              142,
-              169,
-              169,
-              160,
-              160,
-              160,
-              160,
-              142,
-              150,
-              150,
-              142,
-              142,
-              142,
-              142,
-              142,
-              142,
-              110,
-              110,
-              142,
-              142,
-              142,
-              142,
-            ],
-          },
-          {
-            name: "随州旅行社",
-            value: [
-              185,
-              185,
-              185,
-              160,
-              160,
-              146,
-              146,
-              146,
-              146,
-              185,
-              165,
-              165,
-              185,
-              185,
-              185,
-              185,
-              185,
-              185,
-              130,
-              130,
-              185,
-              185,
-              185,
-              185,
-            ],
-          },
-        ],
+      tableData1: [
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "待处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "待处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+        {
+          type: "安保巡查",
+          time: "2020-02-26 12:15",
+          content: "一层数字博物馆人员聚焦",
+          desc:
+            "一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集一层数字博物馆人员聚集",
+          status: "已处理",
+          option: "",
+        },
+      ],
+      mobileData: [
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
+        {
+          src: src3,
+          name: "张三",
+          role: "导游",
+        },
       ],
     };
   },
-  computed: {
-    // 计算旅行社大巴的总数量
-    carSum() {
-      var sum = null;
-      this.bindData1.forEach((item) => {
-        sum += item.value2;
-      });
-      return sum;
-    },
-  },
-  components: {
-    "v-chartPie": chartPie,
-    "v-chartLines": chartLines,
-  },
+  created() {},
+  methods: {},
+  components: {},
 };
 </script>
 
 <style lang="less" scoped>
-.box {
-  flex: 1;
-  .picker_item {
-    width: 100%;
-    display: flex;
-    span {
-      &:nth-child(2) {
-        min-width: 8rem;
-      }
-    }
-    .time {
-      margin-left: auto;
-      display: flex;
-      justify-content: space-around;
-      div {
-        &:first-child {
-          min-width: 2.4rem;
-        }
-      }
-      .selector {
-        display: flex;
-        align-items: center;
-        width: 60%;
-        color: rgba(46, 217, 253, 1);
-        font-size: 0.5rem;
-        div {
-          padding-right: 0.2rem;
-        }
-        .el-select {
-          width: 65%;
-          /deep/.el-input__inner {
-            border-radius: 0;
-            font-size: 12px;
-            padding: 0;
-          }
-        }
-      }
-      .picker {
-        font-size: 0.5rem;
-        display: flex;
-        align-items: center;
-        /deep/.el-range-editor.el-input__inner {
-          padding: 2px 10px;
-          border-radius: 0;
-          padding: 0;
-        }
-        div {
-          margin-right: 0.2rem;
-        }
-      }
-    }
-  }
-}
-.box_u {
-  height: 56%;
-  margin-top: 0.4rem;
+.content {
+  overflow: hidden;
+  padding-bottom: 0.4rem;
   display: flex;
-
+}
+.box_r {
+  flex: 1;
+  margin-top: 0.4rem;
+  // padding-bottom: 0.4rem;
+  overflow: hidden;
+  display: flex;
+  font-size: 0.5rem;
+  color: #fff;
   .box_flex1 {
-    flex: 8.3;
+    height: 100%;
+    margin-bottom: 0.4rem;
+    .box-head {
+      margin: 0.4rem 0;
+    }
+    flex: 1;
     display: flex;
-    box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-      0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
-    padding: 0 1rem 0 0;
-    .item {
-      flex: 1;
+    flex-direction: column;
+    padding: 0rem 0.4rem 0.4rem 0.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .up {
+      height: 16%;
       display: flex;
-      flex-direction: column;
-      margin-bottom: 1.2rem;
-      margin-left: 1.2rem;
-      .mapNumber {
+      margin-bottom: 0.4rem;
+      .box-body {
         flex: 1;
-        margin: 0.4rem;
-        margin-top: 1.5rem;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .up {
-          display: flex;
-          justify-content: space-between;
-          > span {
-            height: 0.45rem;
-            font-size: 0.6rem;
-            font-weight: 400;
-            color: #fff;
-            line-height: 0.45rem;
+        padding-bottom: 0.4rem;
+        ul {
+          flex: 1;
+          .right-li {
+            margin-bottom: 1.2rem;
           }
-        }
-        .down {
-          height: 1.05rem;
-          line-height: 1.05rem;
-          display: flex;
-          justify-content: space-between;
-          > span {
-            font-family: lcd;
-            display: inline-block;
-            font-size: 1.4rem;
-            font-weight: 400;
-            flex: 1;
-            color: rgba(255, 255, 255, 1);
-            background: rgba(24, 62, 95, 0.6);
-            box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-              0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
-            margin: 0 0.4rem 0 0;
-            height: 1.8rem;
-            line-height: 1.8rem;
-            width: 0.8rem;
-            text-align: center;
-          }
-        }
-        .per {
-          display: flex;
-          height: 0.56rem;
-          font-size: 0.5rem;
-          font-weight: 400;
-          color: rgba(230, 111, 146, 1);
-          line-height: 0.56rem;
-          justify-content: space-between;
-          margin-top: 0.4rem;
-          .per_left {
+          li {
             display: flex;
             align-items: center;
-            color: rgba(71, 181, 108, 1);
-            .upNum {
-              color: rgba(230, 111, 146, 1);
-            }
-            > span:first-child {
-              color: #fff;
-              margin-right: 0.6rem;
+            margin: 0.4rem 0;
+            .item {
+              display: flex;
+              align-items: center;
+              margin-right: 1.2rem;
+              .count {
+                font-size: 1rem;
+                font-family: "lcd";
+                margin: 0 0.2rem;
+              }
             }
             img {
-              width: 0.3rem;
-              height: 0.3rem;
-              margin-left: 0.4rem;
+              width: 0.8rem;
+              margin-right: 0.4rem;
             }
+          }
+        }
+      }
+    }
+    .down {
+      overflow: hidden;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.4rem;
+      .box-top {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.02rem solid #33c6f7ff;
+        padding: 0.4rem 0;
+        .status_desc {
+          span {
+            cursor: pointer;
+            padding: 0 0.2rem;
+            border-radius: 0.1rem;
+            &:first-child {
+              background-color: #27b3cdff;
+            }
+            &:nth-child(2) {
+              background-color: #26cd33ff;
+              margin: 0 0.2rem;
+            }
+            &:last-child {
+              background-color: #adadadff;
+            }
+          }
+        }
+      }
+      .box-body {
+        overflow-y: auto;
+        margin-top: 0.4rem;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(auto-fill, 3.6rem);
+        grid-row-gap: 0.4rem;
+        grid-column-gap: 0.4rem;
+        // 设置先行后列
+        grid-auto-flow: row;
+        .bgc_blue {
+          background-color: #27b3cd;
+        }
+        .bgc_green {
+          background: rgba(38, 205, 51, 1);
+        }
+        #bgc_grey {
+          background: rgba(173, 173, 173, 1);
+        }
+        .seat_item {
+          padding: 0.1rem;
+          font-size: 0.4rem;
+          height: 3.6rem;
+          box-sizing: border-box;
+          text-align: center;
+          .item_header {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            margin-bottom: 0.2rem;
+            img {
+              width: 0.7rem;
+            }
+          }
+          .work_num {
+            margin: 0.3rem 0;
+          }
+          .item_footer {
+            border: 0.02rem solid #fff;
+            margin: 0.3rem 0.3rem 0;
+            padding: 0.03rem 0;
+          }
+        }
+      }
+      .mobile_body {
+        // overflow-y: auto;
+        margin: 0.4rem 0.4rem 0;
+        display: grid;
+        grid-template-columns: 22% 22%;
+        justify-content: space-between;
+        grid-template-rows: repeat(auto-fill, 2.4rem);
+        grid-column-gap: 0.4rem;
+        .mobile {
+          background-color: #27b3cd;
+          display: flex;
+          padding: 0.4rem 0.2rem;
+          box-sizing: border-box;
+          align-items: flex-end;
+          img {
+            height: 1.4rem;
+          }
+          .name {
+            font-size: 0.5rem;
+            margin: 0 0.2rem;
+          }
+          .role {
+            font-size: 0.3rem;
           }
         }
       }
     }
   }
   .box_flex2 {
-    flex: 10;
-    display: flex;
-    .flex2_left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      .up {
-        width: 100%;
+    flex: 2;
+    .box {
+      .box-body {
+        overflow: hidden;
+      }
+      overflow: hidden;
+      .head_right {
+        word-wrap: no-wrap;
         display: flex;
-        flex: 1;
-        .box {
-          flex: 1;
-          .count_head {
-            display: flex;
-            .count {
-              color: #fff;
-              margin-left: auto;
-            }
+        width: 40%;
+        .picker {
+          display: flex;
+          align-items: center;
+          /deep/.el-range-editor.el-input__inner {
+            padding: 2px 10px;
           }
         }
-      }
-    }
-  }
-}
-.box_d {
-  flex: 1;
-  display: flex;
-  margin-top: 0.4rem;
-  .box_flex4 {
-    flex: 8 !important;
-    width: 66%;
-    .item {
-      height: 100%;
-      display: flex;
-      .picker_item {
-        .time {
-          .selector {
-            font-size: 0.3rem;
-            div {
-              &:first-child {
-                min-width: 2.4rem;
-              }
-            }
-            /deep/.el-input__inner {
-              font-size: 12px;
-              border-radius: 0;
-            }
-          }
-          .picker {
-            font-size: 0.3rem;
-          }
+        /deep/ .el-date-editor--daterange.el-input__inner {
+          width: 80%;
+          margin-left: 0.2rem;
+        }
+        .el-select {
+          width: 60%;
         }
       }
+      /deep/ .el-table__expanded-cell[class*="cell"] {
+        padding: 0.35rem 0.32rem;
+        text-indent: 2em;
+        font-size: 0.32rem;
+        line-height: 0.8rem;
+      }
+      /deep/ .el-table .cell,
+      .el-table th div,
+      .el-table--border td:first-child .cell,
+      .el-table--border th:first-child .cell {
+        padding: 0.1rem 0.2rem;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.32rem;
+        color: #fff;
+      }
+      // 将展开行的小图标颜色变为白色
+      /deep/ .el-icon-arrow-right:before {
+        color: #fff;
+      }
+      /deep/.el-table,
+      .el-table__expanded-cell {
+        background-color: transparent;
+      }
+      /deep/ .el-table tr {
+        background-color: transparent !important;
+        padding: 0.35rem 0.32rem;
+      }
+      /deep/ .el-table--enable-row-transition .el-table__body td,
+      .el-table .cell {
+        background-color: transparent;
+        color: #fff;
+      }
+      /deep/.el-table__header-wrapper {
+        background-color: transparent !important;
+      }
+      /deep/ .el-table td,
+      .el-table th.is-leaf {
+        background: rgba(46, 217, 253, 0.2) !important;
+        border-bottom: 0.01rem solid rgba(42, 204, 240, 1) !important;
+      }
+      /deep/ .el-table th,
+      .el-table td {
+        border: none;
+        background-color: rgba(35, 173, 209, 1) !important;
+        border-right: 0.02rem solid rgba(42, 204, 240, 1);
+        color: #fff;
+        padding: 0 !important;
+      }
+      /deep/ .el-table td,
+      .el-table th {
+        padding: 0;
+      }
+      /deep/ .el-table--border:after,
+      .el-table--group:after,
+      .el-table:before {
+        background-color: rgba(42, 204, 240, 1);
+      }
+
+      /deep/ .el-table--border,
+      .el-table--group {
+        border-color: rgba(42, 204, 240, 1);
+      }
+
+      /deep/ .el-table--border th,
+      .el-table--border th.gutter:last-of-type {
+        border-bottom: 0.02rem solid rgba(42, 204, 240, 1);
+      }
+
+      /deep/.el-table--border td,
+      .el-table--border th {
+        border-right: 0.02rem solid rgba(42, 204, 240, 1);
+      }
+      /*   /deep/ .el-table__expand-column .cell {
+          display: none;
+        } */
     }
-  }
-  .box_flex5 {
-    flex: 8;
-    display: flex;
-    flex-direction: column;
-    .item {
-      flex: 1;
-      width: 100%;
-      height: 50%;
-      display: flex;
-    }
-  }
-  .box_flex6 {
-    flex: 10;
   }
 }
 </style>

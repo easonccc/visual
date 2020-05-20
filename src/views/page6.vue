@@ -1,138 +1,172 @@
 <template>
   <div class="content">
-    <v-commonTitle title="消费数据驾驶舱"></v-commonTitle>
-    <div class="box_u">
-      <div
-        class="box_flex1"
-        style="margin-right:0.4rem;background-color: rgba(1, 104, 185, 0.2);"
-      >
+    <v-commonTitle title="事件数据驾驶舱"></v-commonTitle>
+    <div class="box_r">
+      <div class="box_flex1" style="margin: 0 0.4rem">
         <div class="item">
-          <div class="mapNumber">
-            <div class="up">
-              <span>本月旅行消费总金额(万元):</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>-</span>
-              <span>2</span>
-              <span>3</span>
-              <span>5</span>
-              <span>4</span>
-              <span>2</span>
-              <span>9</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 0.2%<img
-                  src="../assets/img/downsmall.png"
-                />
+          <div class="item1">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>场馆巡查人员统计
+              </div>
+              <div class="box-body">
+                <v-chartPie
+                  :bindData="bindData1"
+                  :showPer="false"
+                  type="人"
+                ></v-chartPie>
               </div>
             </div>
           </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>冬季旅游消费总金额(万元):</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
+          <div class="item1" style="margin-top: 0.4rem">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>今日巡查点数据
+              </div>
+              <div class="box-body" style="padding: 0.2rem 0">
+                <div class="box-item">
+                  <div class="body_item">
+                    <div class="img">
+                      <img src="../assets/img/事件数据/形状结合.png" alt="" />
+                    </div>
+                    <div class="name">全部巡查点 : <span>720</span>个</div>
+                  </div>
+                  <div class="body_item">
+                    <div class="img">
+                      <img
+                        src="../assets/img/事件数据/形状结合(1).png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="name">已巡查 : <span>500</span>个</div>
+                  </div>
+                </div>
+                <v-consumerList :bindData="bindData2"></v-consumerList>
               </div>
             </div>
           </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>上半年旅游消费总金额(万元):</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>2020年旅游消费总金额(万元):</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
+          <div class="item2">
+            <div class="box">
+              <div class="box-head"><span class="dot"></span>巡查人员列表</div>
+              <div class="box-body">
+                <div class="body-top">
+                  <div class="search">
+                    <el-input placeholder="关键字搜索">
+                      <i
+                        slot="suffix"
+                        class="el-input__icon el-icon-search"
+                      ></i>
+                    </el-input>
+                  </div>
+                  <div class="selector">
+                    <div>班次 :</div>
+                    <el-select v-model="value" placeholder="早班">
+                      <el-option> </el-option>
+                    </el-select>
+                  </div>
+                </div>
+                <table class="sort">
+                  <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>班次</th>
+                    <th>上报事件</th>
+                  </tr>
+                  <tr v-for="(v, i) in tableData" :key="i">
+                    <td>{{ i + 1 < 10 ? "0" + (i + 1) : i + 1 }}</td>
+                    <td>{{ v.name }}</td>
+                    <td>{{ v.level }}</td>
+                    <td>{{ v.event }}</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="box_flex2">
-        <div class="flex2_left">
-          <div class="item">
-            <div class="box">
-              <div class="box-head picker_item">
-                <span class="dot"></span>各市游客总消费及排名
-              </div>
-              <v-chartPie :bindData="bindData3" type="元"></v-chartPie>
-            </div>
+        <div class="up">
+          <div class="box">
+            <div class="box-head"><span class="dot"></span>巡查事件</div>
+            <!-- <v-mapEvent></v-mapEvent> -->
+            <bg-canvas></bg-canvas>
           </div>
-          <div class="item">
-            <div class="box">
-              <div class="box-head">
-                <span class="dot"></span>特定省市来鄂消费水平占比
-              </div>
-              <v-chartPie :bindData="bindData3" type="元"></v-chartPie>
+        </div>
+        <div class="down" style="margin-top: 0.4rem">
+          <div class="box">
+            <div class="box-body">
+              <el-table
+                :data="tableData1"
+                style="width: 100%"
+                height="100%"
+                fit
+                border
+              >
+                <el-table-column label="序号" type="index"> </el-table-column>
+                <el-table-column label="巡查人员" prop="name" width="80">
+                </el-table-column>
+                <el-table-column label="事件上报时间" prop="time" width="140">
+                </el-table-column>
+                <el-table-column label="事件上报地点" prop="addr">
+                </el-table-column>
+                <el-table-column
+                  show-overflow-tooltip
+                  label="事件详情"
+                  prop="desc"
+                >
+                </el-table-column>
+                <el-table-column label="事件处理状态" prop="status">
+                  <template scope="scope">
+                    <span
+                      v-if="scope.row.status === '待处理'"
+                      style="color: #EC991F"
+                      >{{ scope.row.status }}</span
+                    >
+                    <span v-else-if="scope.row.status === '已处理'">{{
+                      scope.row.status
+                    }}</span>
+                  </template>
+                </el-table-column>
+                <el-table-column label="操作" type="expand">
+                  <template slot-scope="props">{{ props.row.desc }}</template>
+                </el-table-column>
+              </el-table>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="box_d">
-      <div class="box_flex4" style="flex:2.5">
-        <div class="item">
+      <div class="box_flex3">
+        <div class="up">
           <div class="box">
-            <div class="box-head picker_item">
-              <span class="dot"></span>
-              各旅行行业销售占比
+            <div class="box-head">
+              <span class="dot"></span>场馆报警设备分布
             </div>
-            <v-chartList
-              :bindData="bindData4"
-              :showRatio="false"
-              :show="false"
-            ></v-chartList>
+            <div class="box-body">
+              <v-mapJk :bindData="device"></v-mapJk>
+            </div>
+          </div>
+        </div>
+        <div class="down">
+          <div class="box">
+            <div class="box-head"><span class="dot"></span>事件列表</div>
+            <el-table
+              :data="tableData2"
+              style="width: 100%"
+              fit
+              height="100%"
+              border
+            >
+              <el-table-column label="序号" type="index"> </el-table-column>
+              <el-table-column label="记录时间" prop="time" width="130">
+              </el-table-column>
+              <el-table-column label="报警事件标题" prop="title" width="140">
+              </el-table-column>
+              <el-table-column label="事件处理状态" prop="status">
+              </el-table-column>
+              <el-table-column label="操作" type="expand">
+                <template slot-scope="props">{{ props.row.desc }}</template>
+              </el-table-column>
+            </el-table>
           </div>
         </div>
       </div>
@@ -141,356 +175,653 @@
 </template>
 
 <script>
-import ChartBar from "../components/myEcharts/chartBar";
-import chartPie from "../components/element/chartPie";
+import chartPie2 from "../components/element/chartPie2";
+import chartLines from "../components/element/chartLines";
 import chartList from "../components/element/chartList";
+import chartPie from "../components/element/chartPie";
+import mapJk from "../components/map/mapJk";
+import consumerList from "../components/element/ConsumerList";
+import mapEvent from "../components/map/mapEvent";
+import bgCanvas from "../components/indoor/bg_canvas";
 
 export default {
   name: "page1",
   data() {
     return {
+      // 下拉选择框选择的数据
+      value: "",
+      bindData: [
+        {
+          name: "铁路",
+          value: 45000,
+          per: "45%",
+        },
+        {
+          name: "航空",
+          value: 55000,
+          per: "55%",
+        },
+      ],
       bindData1: [
-        [
-          "武汉市",
-          "黄石市",
-          "襄阳市",
-          "荆州市",
-          "宜昌市",
-          "十堰市",
-          "孝感市",
-          "荆门市",
-          "鄂州市",
-          "黄冈市",
-          "咸宁市",
-          "随州市",
-        ],
-        [
-          "2800",
-          "2500",
-          "2700",
-          "1741",
-          "2727",
-          "1184",
-          "1113",
-          "1222",
-          "3123",
-          "1313",
-          "1313",
-          "1313",
-        ],
+        {
+          name: "全部巡查人员",
+          value: 50,
+          value2: 50,
+        },
+        {
+          name: "在职巡查人员",
+          value: 30,
+          value2: 30,
+        },
       ],
       bindData2: [
-        [
-          "湖北",
-          "湖南",
-          "河南",
-          "四川",
-          "重庆",
-          "河北",
-          "浙江",
-          "江西",
-          "广东",
-          "广西",
-          "云南",
-          "陕西",
-          "辽宁",
-          "黑龙江",
-          "甘肃",
-          "福建",
-          "贵州",
-          "新疆",
-          "西藏",
-        ],
-        [
-          "2800",
-          "2500",
-          "2700",
-          "1741",
-          "2727",
-          "1184",
-          "1113",
-          "1222",
-          "3123",
-          "1313",
-          "1313",
-          "1313",
-          "1300",
-          "1213",
-          "1200",
-          "1200",
-          "1313",
-          "1288",
-          "1288",
-        ],
-      ],
-      barColor: [
-        ["rgba(255,88,88,1)", "rgba(255,88,88,0.3)"],
-        ["rgba(255,224,88,1)", "rgba(255,224,88,0.3)"],
-        ["rgba(225,88,255,1)", "rgba(225,88,255,0.3)"],
-        ["rgba(88,255,255,1)", "rgba(88,255,255,0.3)"],
-        ["rgba(119,255,88,1)", "rgba(119,255,88,0.3)"],
-        ["rgba(88,112,255,1)", "rgba(88,112,255,0.3)"],
-        ["rgba(255,159,88,1)", "rgba(255,159,88,0.3)"],
-        ["rgba(88,187,255,1)", "rgba(88,187,255,0.3)"],
-        ["rgba(220,234,200,1)", "rgba(220,234,200,1)"],
-        ["rgba(245,195,245,1)", "rgba(245,195,245,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(183,221,244,1)", "rgba(183,221,244,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-      ],
-      bindData3: [
         {
-          name: "武汉市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "宜昌市",
-          value: 26,
-          value2: 9809,
-        },
-        {
-          name: "黄冈市",
-          value: 28,
-          value2: 9809,
-        },
-        {
-          name: "荆州市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "襄阳市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "十堰市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "孝感市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "鄂州市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "黄冈市",
-          value: 26,
-          value2: 8620,
-        },
-        {
-          name: "咸宁市",
-          value: 26,
-          value2: 8620,
+          name: "",
+          value: "70%",
+          width: "70%",
         },
       ],
-      bindData4: [
+      tableData: [
         {
-          name: "蔡林记热干面",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18, 6],
+          name: "李四",
+          level: "早班",
+          event: 1,
         },
         {
-          name: "武汉特色菜",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18, 6],
+          name: "李四",
+          level: "早班",
+          event: 1,
         },
         {
-          name: "襄阳火锅店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 24, 32, 18, 6],
+          name: "李四",
+          level: "早班",
+          event: 1,
         },
         {
-          name: "宜昌美食店",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [12, 28, 34, 20, 6],
+          name: "李四",
+          level: "早班",
+          event: 1,
         },
         {
-          name: "孝感米酒",
-          num1: "18.56",
-          num2: "25425425.00",
-          per: [26, 14, 32, 20, 8],
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
+        },
+        {
+          name: "李四",
+          level: "早班",
+          event: 1,
         },
       ],
+      tableData1: [
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "待处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+        {
+          name: "张三",
+          time: "2020-02-26 12:15",
+          addr: "博物馆二楼大厅",
+          desc:
+            "有游客李四遗失一部华为P30手机，遗失手机电话：13312341234，描述：疑似在入口登记处遗失。",
+          status: "已处理",
+          option: "",
+        },
+      ],
+      tableData2: [
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "寻人",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+        {
+          time: "2020-02-26 12:15",
+          title: "手机遗失",
+          desc:
+            "博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失博物馆三楼有人遗失",
+          status: "已处理",
+          option: "",
+        },
+      ],
+      device: null,
     };
   },
+  created() {
+    this.getDeviceData();
+  },
+  methods: {
+    async getDeviceData() {
+      const data = await http.get("./data/deviceData.json");
+      this.device = data;
+    },
+  },
   components: {
-    ChartBar,
-    "v-chartList": chartList,
+    "v-chartPie2": chartPie2,
+    "v-chartLines": chartLines,
     "v-chartPie": chartPie,
+    "v-consumerList": consumerList,
+    "v-chartList": chartList,
+    "v-mapJk": mapJk,
+    "v-mapEvent": mapEvent,
+    bgCanvas,
   },
 };
 </script>
 
 <style lang="less" scoped>
-.box {
+.box_r {
   flex: 1;
-}
-.box_u {
-  height: 56%;
   margin-top: 0.4rem;
   display: flex;
   .box_flex1 {
-    flex: 3;
+    flex: 1;
     display: flex;
     .item {
       flex: 1;
       display: flex;
       flex-direction: column;
-      .mapNumber {
+      .item1 {
         flex: 1;
-        margin: 0.4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .up {
+        .box .box-body {
           display: flex;
-          justify-content: space-between;
-          > span {
-            height: 0.45rem;
-            font-size: 0.6rem;
-            font-weight: 400;
-            color: #fff;
-            line-height: 0.45rem;
-          }
-        }
-        .down {
-          height: 1.05rem;
-          line-height: 1.05rem;
-          display: flex;
-          justify-content: space-between;
-          > span {
-            font-family: lcd;
-            display: inline-block;
-            font-size: 1.2rem;
-            font-weight: 400;
-            flex: 1;
-            color: rgba(255, 255, 255, 1);
-            background: rgba(24, 62, 95, 0.6);
-            box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-              0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
-            margin: 0 0.4rem 0 0;
-            height: 1.6rem;
-            line-height: 1.6rem;
-            width: 1rem;
-            text-align: center;
-          }
-        }
-        .per {
-          display: flex;
-          height: 0.56rem;
-          font-size: 0.6rem;
-          font-weight: 400;
-          color: rgba(230, 111, 146, 1);
-          line-height: 0.56rem;
-          justify-content: space-between;
-          margin-top: 0.4rem;
-          .per_left {
+          flex-direction: column;
+          .box-item {
             display: flex;
-            align-items: center;
-            color: rgba(71, 181, 108, 1);
-            .upNum {
-              color: rgba(230, 111, 146, 1);
-            }
-            > span:first-child {
+            padding: 1rem 0;
+            .body_item {
+              display: flex;
+              flex: 1;
+              justify-content: center;
+              align-items: center;
+              font-size: 0.4rem;
               color: #fff;
-              margin-right: 0.6rem;
-            }
-            img {
-              width: 0.3rem;
-              height: 0.3rem;
-              margin-left: 0.4rem;
+              &:last-child {
+                color: #07c5f5;
+              }
+              span {
+                font-size: 1rem;
+                font-family: "lcd";
+              }
+              .img {
+                width: 0.8rem;
+                margin-right: 0.4rem;
+                img {
+                  width: 100%;
+                }
+              }
             }
           }
         }
       }
+      .item2 {
+        flex: 4;
+        margin-top: 0.4rem;
+        .box {
+          .box-body {
+            display: flex;
+            flex-direction: column;
+            .body-top {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .search {
+                margin-bottom: 0.4rem;
+                width: 30%;
+                /deep/ .el-input__suffix {
+                  top: -0.45rem;
+                }
+              }
+              .selector {
+                display: flex;
+                align-items: center;
+                width: 40%;
+                color: rgba(46, 217, 253, 1);
+                font-size: 0.5rem;
+                div {
+                  padding-right: 0.2rem;
+                }
+                .el-select {
+                  width: 70%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .sort {
+    font-size: 0.32rem;
+    color: #fff;
+    th,
+    tr:first-child td {
+      background: rgba(35, 173, 209, 1);
+      border: 0.02rem solid rgba(42, 204, 240, 1);
+    }
+    th,
+    td {
+      padding: 0.35rem 0.32rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .active {
+      color: #ec991f;
+    }
+    #active2 {
+      color: #d0021b;
+    }
+    td {
+      text-align: center;
+      background: rgba(46, 217, 253, 0.2);
+      border: 0.02rem solid rgba(42, 204, 240, 1);
     }
   }
   .box_flex2 {
-    flex: 10;
-    display: flex;
-    .flex2_left {
-      flex: 1;
-      display: flex;
-      .item {
-        flex: 1;
-        margin-right: 0.4rem;
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-  .box_flex3 {
-    flex: 3;
+    flex: 2;
     display: flex;
     flex-direction: column;
-    .box {
-      .box-head {
-        margin-top: 0.2rem;
-        .floor {
-          float: right;
-          width: 21%;
-          .img {
-            width: 0.7rem;
-            cursor: pointer;
-            float: left;
-            margin-right: 0.5rem;
-            img {
-              width: 100%;
-            }
-          }
-        }
+    margin-right: 0.4rem;
+    .up {
+      height: 55%;
+    }
+    .down {
+      overflow: hidden;
+      margin-top: 0.4rem;
+      flex: 1;
+      display: flex;
+      .box-body {
+        overflow-y: auto;
       }
     }
   }
-}
-.box_d {
-  flex: 1;
-  display: flex;
-  margin-top: 0.4rem;
-  .box_flex4 {
-    flex: 8 !important;
-    width: 66%;
-    .item {
-      height: 100%;
+  .box {
+    flex: 1;
+    /deep/ .el-table__expanded-cell[class*="cell"] {
+      padding: 0.35rem 0.32rem;
+      text-indent: 2em;
+      font-size: 0.32rem;
+      line-height: 0.8rem;
+    }
+    /deep/ .el-table .cell,
+    .el-table th div,
+    .el-table--border td:first-child .cell,
+    .el-table--border th:first-child .cell {
+      padding: 0.1rem 0.2rem;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.32rem;
+      color: #fff;
+    }
+    // 将展开行的小图标颜色变为白色
+    /deep/ .el-icon-arrow-right:before {
+      color: #fff;
+    }
+    /deep/.el-table,
+    .el-table__expanded-cell {
+      background-color: transparent;
+    }
+    /deep/ .el-table tr {
+      background-color: transparent !important;
+      padding: 0.35rem 0.32rem;
+    }
+    /deep/ .el-table--enable-row-transition .el-table__body td,
+    .el-table .cell {
+      background-color: transparent;
+      color: #fff;
+    }
+    /deep/.el-table__header-wrapper {
+      background-color: transparent !important;
+    }
+    /deep/ .el-table td,
+    .el-table th.is-leaf {
+      background: rgba(46, 217, 253, 0.2) !important;
+      border-bottom: 0.01rem solid rgba(42, 204, 240, 1) !important;
+    }
+    /deep/ .el-table th,
+    .el-table td {
+      border: none;
+      background-color: rgba(35, 173, 209, 1) !important;
+      border-right: 0.02rem solid rgba(42, 204, 240, 1);
+      color: #fff;
+      padding: 0 !important;
+    }
+    /deep/ .el-table td,
+    .el-table th {
+      padding: 0;
+    }
+    /deep/ .el-table--border:after,
+    .el-table--group:after,
+    .el-table:before {
+      background-color: rgba(42, 204, 240, 1);
+    }
+
+    /deep/ .el-table--border,
+    .el-table--group {
+      border-color: rgba(42, 204, 240, 1);
+    }
+
+    /deep/ .el-table--border th,
+    .el-table--border th.gutter:last-of-type {
+      border-bottom: 0.02rem solid rgba(42, 204, 240, 1);
+    }
+
+    /deep/.el-table--border td,
+    .el-table--border th {
+      border-right: 0.02rem solid rgba(42, 204, 240, 1);
+    }
+    /*   /deep/ .el-table__expand-column .cell {
+          display: none;
+        } */
+  }
+  .box_flex3 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .up {
+      height: 42%;
       display: flex;
-      .picker_item {
-        .time {
-          .selector {
-            font-size: 0.3rem;
-            div {
-              &:first-child {
-                min-width: 2.4rem;
-              }
-            }
-            /deep/.el-input__inner {
-              font-size: 12px;
-              border-radius: 0;
-            }
-          }
-          .picker {
-            font-size: 0.3rem;
-          }
-        }
+      .box {
+        flex: 1;
       }
+    }
+    .down {
+      margin-top: 0.4rem;
+      flex: 1;
+      display: flex;
+      .box {
+        flex: 1;
+      }
+    }
+    .item {
+      flex: 1;
     }
   }
 }

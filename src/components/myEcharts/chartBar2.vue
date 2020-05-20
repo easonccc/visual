@@ -1,12 +1,9 @@
 <template>
   <div class="chartPage">
-    <div
-      :style="{ height: height, width: width }"
-      class="pie"
-      ref="chartPie"
-    ></div>
+    <div :style="{'height':height,'width':width,}" class="pie" ref="chartPie"></div>
   </div>
 </template>
+
 
 <script>
 // require('echarts/theme/macarons');
@@ -32,24 +29,24 @@ export default {
         "#c9ab00",
         "#7eb00a",
         "#6f5553",
-        "#c14089",
+        "#c14089"
       ],
       chart: null,
-      date: new Date(),
+      date: new Date()
     };
   },
   props: {
     type: {
       type: String,
-      default: "all",
+      default: "all"
     },
     width: {
       type: String,
-      default: "100%",
+      default: "100%"
     },
     height: {
       type: String,
-      default: "100%",
+      default: "100%"
     },
     bindData: {
       type: Array,
@@ -58,10 +55,10 @@ export default {
           ["18年1月", "18年2月", "18年3月", "18年4月", "18年5月", "18年6月"],
           ["126", "1708", "2349", "1741", "2727", "1184"],
           ["162", "1208", "2349", "1741", "2727", "1184"],
-          ["142", "1108", "1349", "2741", "3727", "2184"],
+          ["142", "1108", "1349", "2741", "3727", "2184"]
         ];
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.initChartPie(this.bindData);
@@ -69,7 +66,7 @@ export default {
   watch: {
     bindData: function(newValue) {
       this.initChartPie(newValue);
-    },
+    }
   },
   methods: {
     initChartPie(data) {
@@ -81,8 +78,8 @@ export default {
           trigger: "axis",
           axisPointer: {
             // 坐标轴指示器，坐标轴触发有效
-            type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
-          },
+            type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+          }
         },
         legend: {
           data: ["环比数据", "当前数据", "同比数据"],
@@ -93,40 +90,40 @@ export default {
           itemHeight: 5,
           textStyle: {
             color: "white",
-            fontSize: 10,
-          },
+            fontSize: 10
+          }
         },
         grid: {
           top: "10%",
           left: "2%",
           right: "2%",
           bottom: "14%",
-          containLabel: true,
+          containLabel: true
         },
         yAxis: {
           type: "value",
           axisLabel: {
             textStyle: {
               fontSize: 10,
-              color: "#fff",
-            },
+              color: "#fff"
+            }
           },
           splitLine: {
             show: true,
             lineStyle: {
               type: "solid",
-              color: "#0e598d",
-            },
+              color: "#0e598d"
+            }
           },
           axisTick: {
-            show: false,
+            show: false
           },
           axisLine: {
             show: true,
             lineStyle: {
-              color: "#0e598d",
-            },
-          },
+              color: "#0e598d"
+            }
+          }
         },
         xAxis: {
           type: "category",
@@ -136,24 +133,24 @@ export default {
             rotate: 0,
             textStyle: {
               fontSize: 10,
-              color: "#fff",
-            },
+              color: "#fff"
+            }
           },
           splitLine: {
             show: true,
             lineStyle: {
               type: "solid",
-              color: "#0e598d",
-            },
+              color: "#0e598d"
+            }
           },
           axisTick: {
-            show: false,
+            show: false
           },
           axisLine: {
             lineStyle: {
-              color: "#0e598d",
-            },
-          },
+              color: "#0e598d"
+            }
+          }
         },
         series: [
           {
@@ -163,9 +160,9 @@ export default {
             data: this.bindData[1],
             itemStyle: {
               normal: {
-                color: "#FF5858",
-              },
-            },
+                color: "#FF5858"
+              }
+            }
           },
           {
             name: "当前数据",
@@ -174,9 +171,9 @@ export default {
             data: this.bindData[2],
             itemStyle: {
               normal: {
-                color: "#E158FF",
-              },
-            },
+                color: "#E158FF"
+              }
+            }
           },
           {
             name: "同比数据",
@@ -185,23 +182,23 @@ export default {
             data: this.bindData[3],
             itemStyle: {
               normal: {
-                color: "#FFE058",
-              },
-            },
-          },
-        ],
+                color: "#FFE058"
+              }
+            }
+          }
+        ]
       };
       this.chart.setOption(option);
       //   window.onresize = this.chart.resize;
       window.addEventListener("resize", () => {
         this.chart.resize();
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style scoped lang="less">
+<style scoped lang='less'>
 .chartPage {
   position: relative;
   width: 100%;

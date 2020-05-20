@@ -23,40 +23,6 @@ export default {
         return value;
       },
     },
-    // Y轴的单位
-    paramY: {
-      type: Object,
-      default: function() {
-        return {
-          unitY: "",
-          titleY: "",
-        };
-      },
-    },
-    // 是否显示中线 及中线颜色
-    showLine: {
-      type: Object,
-      default: function() {
-        return {
-          hasLine: false,
-          color: "#0e598d",
-          // 中位线的坐标
-          y: 1400,
-          namePadding: 0,
-        };
-      },
-    },
-    // 设置图的位置
-    position: {
-      type: Object,
-      default: function() {
-        return {
-          gridBottom: "3%",
-          bottom: "77%",
-          left: "70%",
-        };
-      },
-    },
   },
   data() {
     return {
@@ -130,28 +96,8 @@ export default {
     this.chart.dispose();
     this.chart = null;
   },
-  computed: {
-    isShowLine() {
-      if (this.showLine.hasLine) {
-        return [
-          {
-            name: "Y 轴值为" + this.showLine.y + "的水平线",
-            yAxis: this.showLine.y,
-          },
-        ];
-      } else {
-        return [
-          {
-            name: "Y 轴值为 0 的水平线",
-            yAxis: 0,
-          },
-        ];
-      }
-    },
-  },
   methods: {
     initChart() {
-      let that = this;
       this.chart = echarts.init(this.$refs.myEchart);
       // 把配置和数据放这里
       var legendlist = [];
@@ -162,17 +108,6 @@ export default {
           name: v.name,
           type: "line",
           data: v.value,
-          symbol: "none",
-          markLine: {
-            symbol: ["none", "none"], //去掉箭头
-            itemStyle: {
-              normal: {
-                lineStyle: { type: "dashed", color: that.showLine.color },
-                label: { show: false, position: "right" },
-              },
-            },
-            data: that.isShowLine,
-          },
         });
       });
 
@@ -191,30 +126,9 @@ export default {
         ],
         legend: {
           icon: "circle",
-          /*  formatter: ["{a|{name}}", "{b|{name}}"].join("\n"),
-          rich: {
-            a: {
-              width: 100,
-              color: "red",
-              lineHeight: 10,
-            },
-            b: {
-              backgroundColor: {
-                image: "xxx/xxx.jpg",
-              },
-              height: 40,
-            },
-          }, */
-
           data: legendlist,
-          orient: "horizontal",
-          // top: "-3%",
-          // right: "5%",
-          // right: that.showLine.right,
-          // right: 6,
-          bottom: this.position.bottom,
-          left: this.position.left,
-          // top: -10,
+          right: 6,
+          top: -10,
           textStyle: {
             color: function(color) {
               return color;
@@ -232,8 +146,8 @@ export default {
         grid: {
           left: "2%",
           right: "5%",
-          bottom: this.position.gridBottom,
-          top: "20%",
+          bottom: "3%",
+          top: "14%",
           containLabel: true,
         },
         xAxis: [
@@ -256,16 +170,6 @@ export default {
         yAxis: [
           {
             type: "value",
-            name: this.paramY.titleY,
-            nameTextStyle: {
-              //y轴上方单位的颜色
-              color: "#fff",
-              padding: this.showLine.namePadding,
-            },
-            /*   position: "top", //位置靠左
-            nameLocation: "center", //位置居中
-            nameGap: 60, //与y轴距离
-            nameRotate: 0, //角 */
             axisLine: {
               show: false,
               lineStyle: {
@@ -285,7 +189,6 @@ export default {
             },
             axisLabel: {
               show: true,
-              formatter: "{value}" + this.paramY.unitY,
               textStyle: {
                 color: "#fff",
               },

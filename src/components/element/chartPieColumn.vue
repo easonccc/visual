@@ -1,21 +1,7 @@
 <template>
   <div class="chart">
     <div class="pie" ref="chartPie"></div>
-
-    <div class="tips" v-if="bindData.length !== 6">
-      <div class="total" v-if="count != 0">总金额:{{ count }}元</div>
-      <div class="tips_one" v-for="(item, index) in bindData" :key="index">
-        <div class="one" :style="{ 'background-color': colors[index] }"></div>
-        <div class="two" :style="{ color: colors[index] }">{{ item.name }}</div>
-        <div class="three" v-if="showPer">
-          {{ item.value == 0 ? "0" : ((item.value / total) * 100).toFixed(2) }}%
-        </div>
-        <div class="three" v-if="item.value2">
-          {{ item.value2 }} {{ type ? type : "" }}
-        </div>
-      </div>
-    </div>
-    <div class="tip" v-else>
+    <div class="tips">
       <div class="total" v-if="count != 0">总金额:{{ count }}元</div>
       <div class="tips_one" v-for="(item, index) in bindData" :key="index">
         <div class="one" :style="{ 'background-color': colors[index] }"></div>
@@ -55,27 +41,27 @@ export default {
         "#c9ab00",
         "#7eb00a",
         "#6f5553",
-        "#c14089",
+        "#c14089"
       ],
-      chart: null,
+      chart: null
     };
   },
   props: {
     type: {
       type: String,
-      default: "",
+      default: ""
     },
     bindData: {
-      type: Array,
+      type: Array
     },
     count: {
       type: Number,
-      default: 0,
+      default: 0
     },
     showPer: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   mounted() {
     this.initChartPie(this.bindData);
@@ -84,12 +70,12 @@ export default {
     bindData: function(newVal, oldVal) {
       this.bindData = newVal;
       this.initChartPie(this.bindData);
-    },
+    }
   },
   computed: {
     total() {
       let total = 0;
-      this.bindData.forEach((v) => {
+      this.bindData.forEach(v => {
         total += parseInt(v.value);
       });
       return total;
@@ -103,7 +89,7 @@ export default {
       } else {
         return "20px";
       }
-    },
+    }
   },
   methods: {
     initChartPie(data) {
@@ -113,7 +99,7 @@ export default {
         tooltip: {
           trigger: "item",
           formatter: "{b}:{c}({d}%)",
-          position: ["25%", "0"],
+          position: ["25%", "0"]
         },
         series: [
           {
@@ -123,33 +109,33 @@ export default {
             itemStyle: {
               normal: {
                 label: {
-                  show: false,
+                  show: false
                 },
                 labelLine: {
-                  show: false,
+                  show: false
                 },
-                color: (params) => {
+                color: params => {
                   // console.log(params)
                   return this.colors[params.dataIndex];
-                },
+                }
               },
               emphasis: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)",
-              },
+                shadowColor: "rgba(0, 0, 0, 0.5)"
+              }
             },
-            data: data,
-          },
-        ],
+            data: data
+          }
+        ]
       };
       this.chart.setOption(option);
       //   window.onresize = this.chart.resize;
       window.addEventListener("resize", () => {
         this.chart.resize();
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -189,58 +175,6 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-left: 1rem;
-
-    .one {
-      width: 0.34rem;
-      height: 0.34rem;
-      border-radius: 50%;
-      margin-right: 0.2rem;
-    }
-    .two {
-      flex: 1;
-      text-align: left;
-      height: 0.56rem;
-      font-size: 0.4rem;
-      font-weight: 400;
-      color: rgba(247, 248, 250, 1);
-      line-height: 0.56rem;
-    }
-    .three {
-      flex: 1;
-      text-align: left;
-      height: 0.56rem;
-      font-size: 0.4rem;
-      font-weight: 400;
-      color: rgba(247, 248, 250, 1);
-      line-height: 0.56rem;
-    }
-  }
-}
-.tip {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  grid-template-rows: repeat(3, 33%);
-  align-items: center;
-  grid-auto-flow: column;
-  padding: 2rem;
-  .total {
-    width: 100%;
-    text-align: center;
-    height: 0.45rem;
-    font-size: 0.32rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1);
-    line-height: 0.45rem;
-  }
-  .tips_one {
-    width: 100%;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-left: 1rem;
 
     .one {
       width: 0.34rem;

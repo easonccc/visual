@@ -3,10 +3,7 @@
     <div class="pie" ref="chartPie"></div>
     <div class="tips">
       <div class="tips_one" v-for="(item, index) in bindData" :key="index">
-        <div
-          :class="tipStyle"
-          :style="{ 'background-color': colors[index] }"
-        ></div>
+        <div class="one" :style="{ 'background-color': colors[index] }"></div>
         <div class="two">{{ item.name }}</div>
         <div class="three">
           <!-- {{ item.value == 0 ? "0" : ((item.value / total) * 100).toFixed(2) }}% -->
@@ -56,11 +53,6 @@ export default {
     },
     bindData: {
       type: Array,
-    },
-    // 图例小圆点的样式 默认为小圆点
-    tipStyle: {
-      type: String,
-      default: "one",
     },
   },
   mounted() {
@@ -148,8 +140,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-left: 2rem;
-
+  padding-left: 0.4rem;
   .total {
     width: 100%;
     text-align: left;
@@ -164,17 +155,12 @@ export default {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 
     .one {
       width: 0.34rem;
       height: 0.34rem;
       border-radius: 50%;
-      margin-right: 0.2rem;
-    }
-    .one_line {
-      width: 0.1rem;
-      height: 0.4rem;
       margin-right: 0.2rem;
     }
     .two {

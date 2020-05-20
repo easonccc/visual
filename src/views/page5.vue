@@ -1,168 +1,103 @@
 <template>
   <div class="content">
-    <v-commonTitle title="车流数据驾驶舱"></v-commonTitle>
-    <div class="box_u">
-      <div
-        class="box_flex1"
-        style="margin-right: 0.4rem;background-color: rgba(1, 104, 185, 0.2);"
-      >
-        <div class="item">
-          <div class="mapNumber">
-            <div class="up">
-              <span>本月入境车辆总量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>-</span>
-              <span>2</span>
-              <span>3</span>
-              <span>5</span>
-              <span>4</span>
-              <span>2</span>
-              <span>9</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 0.2%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>冬季入境车辆总量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>-</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span> 同比:</span> - 25%<img
-                  src="../assets/img/downsmall.png"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>2020入鄂大巴总量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
-          </div>
-          <div class="mapNumber">
-            <div class="up">
-              <span>2020年出鄂车辆总量:</span>
-            </div>
-            <div class="down">
-              <span>-</span>
-              <span>5</span>
-              <span>4</span>
-              <span>9</span>
-              <span>5</span>
-              <span>5</span>
-              <span>3</span>
-              <span>4</span>
-              <span>2</span>
-            </div>
-            <div class="per">
-              <div class="per_left">
-                <span>环比:</span> <span class="upNum">+125%</span
-                ><img src="../assets/img/upsmall.png" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="box_flex2">
-        <div class="flex2_left">
-          <div class="up">
+    <v-commonTitle title="环境监测数据驾驶舱"></v-commonTitle>
+    <div class="r">
+      <div class="box_r">
+        <div
+          class="box_flex1"
+          style="margin: 0 0.4rem;background-color:#03416d;"
+        >
+          <div class="item">
             <div class="box">
-              <div class="box-head picker_item">
-                <span class="dot"></span><span>各市车流数据</span>
-                <div class="time" style="width:40%">
-                  <div class="selector">
-                    <div>选择区域 :</div>
-                    <el-select v-model="value" placeholder="湖北省全域">
-                      <el-option> </el-option>
-                    </el-select>
+              <div class="box-head"><span class="dot"></span>环境监测数据</div>
+              <div class="box-body">
+                <div class="map"><v-chartGauge></v-chartGauge></div>
+                <div class="item">
+                  <div class="box_item">
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/温度计.png" alt="" />
+                      </div>
+                      当前温度25℃
+                    </div>
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/二氧化碳.png" alt="" />
+                      </div>
+                      当前二氧化碳***
+                    </div>
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/湿度.png" alt="" />
+                      </div>
+                      当前湿度30%——80%
+                    </div>
                   </div>
-                  <div class="picker" style="float:right">
-                    <div>选择时间 :</div>
-                    <el-date-picker
-                      v-model="value1"
-                      type="daterange"
-                      style="width:70%;"
-                      range-separator="至"
-                      start-placeholder="开始日期"
-                      end-placeholder="结束日期"
-                    >
-                    </el-date-picker>
+                  <div class="box_item">
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/甲醛.png" alt="" />
+                      </div>
+                      当前甲醛***
+                    </div>
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/pm2.5.png" alt="" />
+                      </div>
+                      当前PM2.5***
+                    </div>
+                    <div class="body_item">
+                      <div class="img">
+                        <img src="../assets/img/home/pm10.png" alt="" />
+                      </div>
+                      当前PM10***
+                    </div>
                   </div>
                 </div>
               </div>
-              <chart-bar :bindData="bindData1" />
-            </div>
-          </div>
-          <div class="down">
-            <div class="box">
-              <div class="box-head">
-                <span class="dot"></span>自驾游归属地统计
-              </div>
-              <chart-bar
-                :styleColor="barColor"
-                :barWidth="22"
-                :showNum="false"
-                :bindData="bindData2"
-              />
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="box_d">
-      <div class="box_flex4" style="flex:2.5">
-        <div class="item">
-          <div class="box">
-            <div class="box-head hasTab">
-              <span class="dot"></span>
-              <span>停车场承载趋势</span>
-              <div class="tabs">
-                <span
-                  @click="sleType(index)"
-                  v-for="(item, index) in tabsArr"
-                  :key="index"
-                  :class="activeIndex == index ? 'active' : ''"
-                  >{{ item }}</span
-                >
+      <div class="box_l">
+        <div class="flex_box">
+          <div class="item">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>温度传感器分布图
               </div>
+              <!-- <v-mapT :bindData="TData"></v-mapT> -->
+              <bj-jk imgType="t"></bj-jk>
             </div>
-            <v-chartPage3Right :paramY="paramY"></v-chartPage3Right>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>二氧化碳传感器分布图
+              </div>
+              <!-- <v-mapC :bindData="CData"></v-mapC> -->
+              <bj-jk imgType="c" :imgData="coData"></bj-jk>
+            </div>
+          </div>
+        </div>
+        <div class="flex_box">
+          <div class="item">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>甲醛传感器分布图
+              </div>
+              <!-- <v-mapJQ :bindData="jqData"></v-mapJQ> -->
+              <bj-jk imgType="jq" :imgData="jqData"></bj-jk>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="box-head">
+                <span class="dot"></span>PM2.5传感器分布图
+              </div>
+              <!-- <v-mapPM :bindData="pmData"></v-mapPM> -->
+              <bj-jk imgType="pm" :imgData="pmData"></bj-jk>
+            </div>
           </div>
         </div>
       </div>
@@ -171,321 +106,497 @@
 </template>
 
 <script>
-import ChartBar from "../components/myEcharts/chartBar";
-import chartPage3Right from "../components/element/chartPage3Right";
+import chartPie from "../components/element/chartPie";
+import chartLines from "../components/element/chartLines";
+import chartGauge from "../components/element/chartGauge";
+import mapPM from "../components/map/mapPM";
+import mapT from "../components/map/mapT";
+import mapC from "../components/map/mapCO2";
+import mapJQ from "../components/map/mapJQ";
+import bjJk from "../components/indoor/bg_jk";
 
 export default {
   name: "page1",
   data() {
     return {
-      activeIndex: 2,
-      tabsArr: ["木兰天池", "三峡人家", "三峡大坝", "屈原故里", "柴埠溪"],
-      value: "",
-      value1: "",
-      paramY: {
-        name: "车次",
-        text: ["车位充足", "橙色预警", "红色预警"],
-      },
+      value: true,
+      deviceActive: 0,
+      deviceActive1: 0,
+      typeList: ["月度", "季度", "半年", "年度"],
+      bindData: [
+        {
+          name: "渝中旅行社",
+          value: 8620,
+          value2: 8620,
+        },
+        {
+          name: "万州旅行社",
+          value: 9809,
+          value2: 9809,
+        },
+        {
+          name: "涪陵旅行社",
+          value: 7868,
+          value2: 7868,
+        },
+        {
+          name: "大渡口旅行社",
+          value: 5890,
+          value2: 5890,
+        },
+        {
+          name: "江北旅行社",
+          value: 6880,
+          value2: 6880,
+        },
+        {
+          name: "沙坪坝旅行社",
+          value: 7868,
+          value2: 7868,
+        },
+        {
+          name: "九龙坡旅行社",
+          value: 7868,
+          value2: 7868,
+        },
+        {
+          name: "南岸旅行社",
+          value: 5890,
+          value2: 5890,
+        },
+        {
+          name: "北碚旅行社",
+          value: 6880,
+          value2: 6880,
+        },
+        {
+          name: "綦江旅行社",
+          value: 7868,
+          value2: 7868,
+        },
+        {
+          name: "其他",
+          value: 9809,
+          value2: 9809,
+        },
+      ],
       bindData1: [
         [
-          "武汉市",
-          "黄石市",
-          "襄阳市",
-          "荆州市",
-          "宜昌市",
-          "十堰市",
-          "孝感市",
-          "荆门市",
-          "鄂州市",
-          "黄冈市",
-          "咸宁市",
-          "随州市",
+          "1月",
+          "2月",
+          "3月",
+          "4月",
+          "5月",
+          "6月",
+          "7月",
+          "8月",
+          "9月",
+          "10月",
+          "11月",
+          "12月",
         ],
         [
-          "2800",
-          "2500",
-          "2700",
-          "1741",
-          "2727",
-          "1184",
-          "1113",
-          "1222",
-          "3123",
-          "1313",
-          "1313",
-          "1313",
+          {
+            name: "渝中旅行社",
+            value: [
+              1600,
+              1800,
+              1700,
+              1950,
+              2333,
+              2451,
+              3333,
+              4513,
+              2498,
+              1065,
+              3324,
+              1354,
+            ],
+          },
+          {
+            name: "万州旅行社",
+            value: [
+              1400,
+              1000,
+              1900,
+              1350,
+              3333,
+              4451,
+              2333,
+              3513,
+              4498,
+              2065,
+              5324,
+              3354,
+            ],
+          },
+          {
+            name: "涪陵旅行社",
+            value: [
+              1100,
+              1200,
+              2700,
+              3950,
+              4567,
+              2451,
+              3755,
+              4523,
+              3412,
+              4444,
+              7534,
+              1247,
+            ],
+          },
+          {
+            name: "大渡口旅行社",
+            value: [
+              5431,
+              5438,
+              4446,
+              6475,
+              7532,
+              6723,
+              5477,
+              8888,
+              7777,
+              6666,
+              4578,
+              7845,
+            ],
+          },
+          {
+            name: "江北旅行社",
+            value: [
+              5786,
+              6745,
+              3786,
+              9756,
+              7865,
+              6666,
+              7563,
+              4578,
+              8753,
+              7564,
+              6886,
+              7466,
+            ],
+          },
         ],
       ],
-      bindData2: [
-        [
-          "湖北",
-          "湖南",
-          "河南",
-          "四川",
-          "重庆",
-          "河北",
-          "浙江",
-          "江西",
-          "广东",
-          "广西",
-          "云南",
-          "陕西",
-          "辽宁",
-          "黑龙江",
-          "甘肃",
-          "福建",
-          "贵州",
-          "新疆",
-          "西藏",
+      bindData2: {
+        legend: ["环比数据", "当前数据", "同比数据"],
+        xData: ["畅游沙坪旅行社", "畅游沙坪旅行社", "畅游沙坪旅行社"],
+        yData: [
+          [8265, 7220, 7413],
+          [10895, 10333, 7798],
+          [7625, 7265, 5841],
         ],
-        [
-          "2800",
-          "2500",
-          "2700",
-          "1741",
-          "2727",
-          "1184",
-          "1113",
-          "1222",
-          "3123",
-          "1313",
-          "1313",
-          "1313",
-          "1300",
-          "1213",
-          "1200",
-          "1200",
-          "1313",
-          "1288",
-          "1288",
-        ],
+      },
+      bindData3: [
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
+        {
+          name1: "酉阳旅行社3日游1团",
+          name2: "酉阳旅行社",
+          n1: "152",
+          n2: "200",
+          n3: "130",
+          n4: "50",
+          time1: "2018.11.20 ",
+          time2: "2018.11.22",
+          where: "大足石刻景区",
+        },
       ],
-      barColor: [
-        ["rgba(255,88,88,1)", "rgba(255,88,88,0.3)"],
-        ["rgba(255,224,88,1)", "rgba(255,224,88,0.3)"],
-        ["rgba(225,88,255,1)", "rgba(225,88,255,0.3)"],
-        ["rgba(88,255,255,1)", "rgba(88,255,255,0.3)"],
-        ["rgba(119,255,88,1)", "rgba(119,255,88,0.3)"],
-        ["rgba(88,112,255,1)", "rgba(88,112,255,0.3)"],
-        ["rgba(255,159,88,1)", "rgba(255,159,88,0.3)"],
-        ["rgba(88,187,255,1)", "rgba(88,187,255,0.3)"],
-        ["rgba(220,234,200,1)", "rgba(220,234,200,1)"],
-        ["rgba(245,195,245,1)", "rgba(245,195,245,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(183,221,244,1)", "rgba(183,221,244,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
-        ["rgba(46,217,253,1)", "rgba(46,217,253,0.3)"],
-        ["rgba(132,134,227,1)", "rgba(132,134,227,0.3)"],
+      bindData4: [
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
+        {
+          name1: "武隆喀斯特-江津四面山-万盛黑山谷",
+          name2: "武隆喀斯特-江津四面山-万盛黑山谷",
+          n1: "365254",
+        },
       ],
+      TData: null,
+      CData: null,
+      // jqData: null,
+      jqData: {
+        name: "甲醛含量",
+        data: "***",
+        bgC: "violet",
+      },
+      pmData: {
+        name: "PM2.5",
+        data: "***",
+        bgC: "red",
+      },
+      coData: {
+        name: "二氧化碳",
+        data: "***",
+        bgC: "blue",
+      },
     };
   },
+  created() {
+    this.getTData();
+    this.getCData();
+    // this.getJQData();
+    // this.getPMData();
+  },
   methods: {
-    sleType(index) {
-      this.activeIndex = index;
+    selType(item, index) {
+      this.deviceActive = index;
+    },
+    selType1(item, index) {
+      this.deviceActive1 = index;
     },
   },
   components: {
-    ChartBar,
-    "v-chartPage3Right": chartPage3Right,
+    "v-chartPie": chartPie,
+    "v-chartLines": chartLines,
+    "v-mapPM": mapPM,
+    "v-mapT": mapT,
+    "v-mapC": mapC,
+    "v-mapJQ": mapJQ,
+    "v-chartGauge": chartGauge,
+    bjJk,
+  },
+  methods: {
+    async getTData() {
+      const data = await http.get("./data/TData.json");
+      this.TData = data;
+    },
+    async getCData() {
+      const data = await http.get("./data/CData.json");
+      this.CData = data;
+    },
+    /*   async getJQData() {
+      const data = await http.get("./data/jqData.json");
+      this.jqData = data;
+    }, */
+    async getPMData() {
+      const data = await http.get("./data/pmData.json");
+      this.pmData = data;
+    },
   },
 };
 </script>
 
 <style lang="less" scoped>
-.box {
-  flex: 1;
-  .picker_item {
-    width: 100%;
-    display: flex;
-    span {
-      &:nth-child(2) {
-        min-width: 8rem;
-      }
-    }
-    .time {
-      margin-left: auto;
-      display: flex;
-      justify-content: space-around;
-      div {
-        &:first-child {
-          min-width: 2.4rem;
-        }
-      }
-      .selector {
-        display: flex;
-        align-items: center;
-        width: 60%;
-        color: rgba(46, 217, 253, 1);
-        font-size: 0.5rem;
-        div {
-          padding-right: 0.2rem;
-        }
-        .el-select {
-          width: 65%;
-          /deep/.el-input__inner {
-            border-radius: 0;
-            font-size: 12px;
-            padding: 0;
-          }
-        }
-      }
-      .picker {
-        font-size: 0.5rem;
-        display: flex;
-        align-items: center;
-        /deep/.el-range-editor.el-input__inner {
-          padding: 2px 10px;
-          border-radius: 0;
-          padding: 0;
-        }
-        div {
-          margin-right: 0.2rem;
-        }
-      }
-    }
-  }
-}
-.box_u {
-  height: 56%;
-  margin-top: 0.4rem;
+.r {
   display: flex;
-
+  height: 100%;
+}
+.box_r {
+  flex: 1;
+  display: flex;
   .box_flex1 {
-    flex: 3;
+    flex: 1;
     display: flex;
-    box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-      0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
+    flex-direction: column;
     .item {
       flex: 1;
       display: flex;
       flex-direction: column;
-      .mapNumber {
-        flex: 1;
-        margin: 0.4rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .up {
+      .box {
+        float: 1;
+        .box-body {
           display: flex;
-          justify-content: space-between;
-          > span {
-            height: 0.45rem;
-            font-size: 0.6rem;
-            font-weight: 400;
-            color: #fff;
-            line-height: 0.45rem;
+          flex-direction: column;
+          .map {
+            height: 40%;
           }
-        }
-        .down {
-          height: 1.05rem;
-          line-height: 1.05rem;
-          display: flex;
-          justify-content: space-between;
-          > span {
-            font-family: lcd;
-            display: inline-block;
-            font-size: 1.2rem;
-            font-weight: 400;
-            flex: 1;
-            color: rgba(255, 255, 255, 1);
-            background: rgba(24, 62, 95, 0.6);
-            box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-              0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
-            margin: 0 0.4rem 0 0;
-            height: 1.6rem;
-            line-height: 1.6rem;
-            width: 1rem;
-            text-align: center;
-          }
-        }
-        .per {
-          display: flex;
-          height: 0.56rem;
-          font-size: 0.6rem;
-          font-weight: 400;
-          color: rgba(230, 111, 146, 1);
-          line-height: 0.56rem;
-          justify-content: space-between;
-          margin-top: 0.4rem;
-          .per_left {
+          .item {
             display: flex;
-            align-items: center;
-            color: rgba(71, 181, 108, 1);
-            .upNum {
-              color: rgba(230, 111, 146, 1);
-            }
-            > span:first-child {
-              color: #fff;
-              margin-right: 0.6rem;
-            }
-            img {
-              width: 0.3rem;
-              height: 0.3rem;
-              margin-left: 0.4rem;
+            flex-direction: row;
+            padding: 0 1rem;
+            .box_item {
+              width: 50%;
+              display: flex;
+              flex-direction: column;
+
+              &:first-child {
+                margin-right: 1rem;
+              }
+              .body_item {
+                height: 33.33%;
+                margin-bottom: 1rem;
+                flex: 1;
+                background-color: rgba(1, 104, 185, 0.2);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                color: rgba(255, 255, 255, 1);
+                .img {
+                  height: 1.5rem;
+                  margin-bottom: 5px;
+                  img {
+                    height: 100%;
+                  }
+                }
+              }
             }
           }
-        }
-      }
-    }
-  }
-  .box_flex2 {
-    flex: 10;
-    display: flex;
-    .flex2_left {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      .up {
-        width: 100%;
-        display: flex;
-        flex: 1;
-        .box {
-          flex: 1;
-        }
-      }
-      .down {
-        // height: 55%;
-        width: 100%;
-        flex: 1;
-        margin-top: 0.4rem;
-        display: flex;
-        .box {
-          height: 100%;
-          flex: 1;
         }
       }
     }
   }
 }
-.box_d {
-  flex: 1;
+.box_l {
+  flex: 2;
   display: flex;
-  margin-top: 0.4rem;
-  .box_flex4 {
-    flex: 8 !important;
-    width: 66%;
+  flex-direction: column;
+  .flex_box {
+    height: 50%;
+    display: flex;
+    &:first-child {
+      margin-bottom: 0.4rem;
+    }
     .item {
-      height: 100%;
-      display: flex;
-      .hasTab {
-        display: flex;
-        .tabs {
-          margin-left: auto;
-          color: rgba(255, 255, 255, 0.6);
-          font-size: 0.45rem;
-          .active {
-            color: #fff;
-          }
-          span {
-            margin-left: 0.3rem;
-            cursor: pointer;
-          }
-        }
+      width: 50%;
+      &:first-child {
+        margin-right: 0.4rem;
       }
     }
   }

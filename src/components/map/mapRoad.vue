@@ -38,13 +38,13 @@ export default {
 
       this.map = new AMap.Map("container1", {
         resizeEnable: true,
-        center: [114.298938, 30.59797],
-        zoom: 12,
+        center: [111.37965306613158, 30.633859630797573],
+        zoom: 15,
       });
 
       //实时路况图层
       var trafficLayer = new AMap.TileLayer.Traffic({
-        zIndex: 18,
+        zIndex: 20,
       });
 
       trafficLayer.setMap(this.map);

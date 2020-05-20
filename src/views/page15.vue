@@ -1,50 +1,91 @@
 <template>
   <div class="content">
-    <v-commonTitle title="舆情数据驾驶舱"></v-commonTitle>
-    <div class="top">
-      <div class="left">
-        <div class="infoBox ">
-          <div class="num_item box">
-            <div class="numBox">
-              <div class="numBox_l">舆情总量(条):</div>
-              <div class="numBox_r">时间:2018年11月3日 12:56</div>
+    <div class="tb">
+      <div class="t">
+        <v-commonTitle title="客流统计对比折线图"></v-commonTitle>
+        <div class="box">
+          <div class="hotWord">
+            <span>关键词:</span>
+            <div class="wordBox">
+              <div>巫山小三峡</div>
+              <div>酉阳桃花源</div>
+              <div>万州大瀑布</div>
             </div>
-            <div class="itemBox">
-              <div v-for="(v, i) in numArr1" :key="i">{{ v }}</div>
+            <el-button size="medium" icon="el-icon-plus" style="height: 0.84rem;
+    border: 0.01rem solid rgb(27, 178, 210);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    color: #1BB2D2;
+    background: transparent;
+    font-size: 0.26rem;
+    padding: 0 .34rem;">添加对比</el-button>
+            <el-button size="medium" icon="el-icon-check" style="height: 0.84rem;
+    border: 0.01rem solid rgb(27, 178, 210);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    color: #1BB2D2;
+    background: transparent;
+    font-size: 0.26rem;
+    padding: 0 .34rem;">确定查询</el-button>
+          </div>
+          <div class="itemBox trendTable">
+            <div class="item" v-for="(v,i) in 1" :key="i">
+              <div class="searchBox">
+                <div class="title2">常看景区</div>
+                <div class="wordBox">
+                  <span v-for="(v,i) in wordArr" :key="i">{{v}}</span>
+                </div>
+              </div>
+              <Chart-line></Chart-line>
             </div>
           </div>
-        </div>
-        <div class="box item item1">
-          <div class="box-head">
-            <span class="dot"></span>
-            <span> 舆情占比</span>
-          </div>
-          <chart-pie></chart-pie>
-        </div>
-        <div class="box item" style="margin-top:0.4rem;">
-          <div class="box-head">
-            <span class="dot"></span>
-            <span> 舆情渠道占比</span>
-          </div>
-          <chart-circle :bindData="bindData" type="percent"></chart-circle>
         </div>
       </div>
-      <div class="right box">
-        <div class="box-head">
-          <span class="dot"></span>
-          <span> 舆情列表</span>
-          <div class="yqBox">
-            <div class="box2">
-              <div class="title">正面舆情</div>
-              <table-diy :bindData="tableData1"></table-diy>
+
+      <div class="b">
+        <v-commonTitle title="车流统计对比折线图"></v-commonTitle>
+        <div class="box">
+          <div class="hotWord">
+            <span>关键词:</span>
+            <div class="wordBox">
+              <div>巫山小三峡</div>
+              <div>酉阳桃花源</div>
+              <div>万州大瀑布</div>
             </div>
-            <div class="box2">
-              <div class="title">中性舆情</div>
-              <table-diy :bindData="tableData2"></table-diy>
-            </div>
-            <div class="box2">
-              <div class="title">负面舆情</div>
-              <table-diy :bindData="tableData3"></table-diy>
+            <el-button size="medium" icon="el-icon-plus" style="height: 0.84rem;
+    border: 0.01rem solid rgb(27, 178, 210);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    color: #1BB2D2;
+    background: transparent;
+    font-size: 0.26rem;
+    padding: 0 .34rem;">添加对比</el-button>
+            <el-button size="medium" icon="el-icon-check" style="height: 0.84rem;
+    border: 0.01rem solid rgb(27, 178, 210);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border-radius: 0;
+    color: #1BB2D2;
+    background: transparent;
+    font-size: 0.26rem;
+    padding: 0 .34rem;">确定查询</el-button>
+          </div>
+          <div class="itemBox trendTable">
+            <div class="item" v-for="(v,i) in 1" :key="i">
+              <div class="searchBox">
+                <div class="title2">常看景区</div>
+                <div class="wordBox">
+                  <span v-for="(v,i) in wordArr" :key="i">{{v}}</span>
+                </div>
+              </div>
+              <Chart-line></Chart-line>
             </div>
           </div>
         </div>
@@ -54,364 +95,184 @@
 </template>
 
 <script>
-import ChartBar from "../components/myEcharts/chartBar2";
-import ChartTrend from "../components/myEcharts/chartTrend";
-import ChartBar2 from "../components/myEcharts/chartBarH";
-import ChartPie from "../components/myEcharts/chartPie";
-import ChartCircle from "../components/myEcharts/chartCircle";
-import TableDiy from "../components/table/tableDiy";
-export default {
-  name: "page1",
-  data() {
-    return {
-      numArr1: ["-", "-", "-", "5", "4", "2", "9", "9", "9"],
-      bindData: [
-        {
-          name: "论坛",
-          value: 10,
-          value2: 10000,
-        },
-        {
-          name: "评论",
-          value: 30,
-          value2: 30000,
-        },
-        {
-          name: "微博",
-          value: 38,
-          value2: 38000,
-        },
-        {
-          name: "微信平台",
-          value: 16,
-          value2: 16000,
-        },
-        {
-          name: "新闻网站",
-          value: 6,
-          value2: 6000,
-        },
-      ],
-      tableData1: {
-        showIndex: false,
-        headData: ["发表时间", "舆情类别", "平台", "内容"],
-        tableData: [
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: true,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-        ],
-        thbg: "rgba(240,98,96,0.3)",
-        tdbg: "rgba(46,217,253,0.2)",
-        tdbor: "0.02rem solid rgba(240,98,96,1)",
-      },
-      tableData2: {
-        showIndex: false,
-        headData: ["发表时间", "舆情类别", "平台", "内容"],
-        tableData: [
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: true,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-        ],
-        thbg: "rgba(236,153,31,0.3)",
-        tdbg: "rgba(236,153,31,0.2)",
-        tdbor: "0.02rem solid rgba(236,153,31,1)",
-      },
-      tableData3: {
-        showIndex: false,
-        headData: ["发表时间", "舆情类别", "平台", "内容"],
-        tableData: [
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微博",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "微信公众号",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: true,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-          {
-            city: "2018.11.10 12:56",
-            pro: "正面",
-            area: "评论",
-            level:
-              "显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题显示内容标题...",
-            active: false,
-          },
-        ],
-        thbg: "rgba(31,108,255,0.3)",
-        tdbg: "rgba(31,108,255,0.2)",
-        tdbor: "0.02rem solid rgba(31,108,255,1)",
-      },
-    };
-  },
-  components: {
-    ChartBar,
-    ChartTrend,
-    ChartPie,
-    ChartCircle,
-    TableDiy,
-    ChartBar2,
-  },
-};
+  import ChartLine from "../components/myEcharts/chartLine";
+
+  export default {
+    name: "page1",
+    data() {
+      return {
+        wordArr: [
+          "大足石刻景区",
+          "大足石刻景区",
+          "大足石刻景区",
+          "大足石刻景区",
+          "大足石刻景区",
+          "大足石刻景区",
+          "大足石刻景区"
+        ]
+      };
+    },
+    components: {
+      ChartLine
+    }
+  };
 </script>
 
 <style lang="less" scoped>
-.top {
-  display: flex;
-  flex: 1;
-  > div {
-    margin-right: 0.4rem;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-  .left {
-    flex: 1;
-    color: #fff;
+  .content {
     display: flex;
     flex-direction: column;
-    .infoBox {
-      flex: 1.3;
-      margin-bottom: 0.4rem;
-      .num_item {
-        padding: 0.4rem;
-        .numBox {
-          margin-top: 0.5rem;
+
+    .tb {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+      >div {
+        height: 47%;
+      }
+    }
+
+    >div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      &:first-child {
+        margin-bottom: 0.4rem;
+      }
+
+      >.box {
+        flex: 1;
+      }
+    }
+
+    .hotWord {
+      display: flex;
+      //   justify-content: space-between;
+      align-items: center;
+      background: #03416d;
+      padding: 0.25rem 1.35rem;
+      margin-bottom: 0.2rem;
+
+      >span {
+        margin-right: 0.32rem;
+        font-size: 0.32rem;
+        color: #fff;
+      }
+
+      .wordBox {
+        display: flex;
+        justify-content: space-between;
+
+        >div {
+          width: 4.05rem;
+          height: 0.84rem;
+          padding-left: 0.57rem;
           display: flex;
-          padding: 0 0.4rem;
+          align-items: center;
+          box-sizing: border-box;
+          position: relative;
+          color: #fff;
+          font-size: 0.26rem;
+          margin-right: 1.35rem;
+          background: rgba(46, 217, 253, 0.2);
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0.18rem;
+          }
+
+          &:nth-child(1) {
+            border: 1px solid #58cf66;
+
+            &::before {
+              background: #58cf66;
+            }
+          }
+
+          &:nth-child(2) {
+            border: 1px solid #fe8f29;
+
+            &::before {
+              background: #fe8f29;
+            }
+          }
+
+          &:nth-child(3) {
+            border: 1px solid #5990ff;
+
+            &::before {
+              background: #5990ff;
+            }
+          }
+        }
+      }
+    }
+
+    .itemBox {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      flex: 1;
+      width: 100%;
+
+      .searchBox {
+
+        //   padding: 20px 0;
+        .wordBox {
+          display: flex;
           justify-content: space-between;
           color: #fff;
-          &_l {
-            font-size: 0.6rem;
-          }
-          &_r {
-            font-size: 0.6rem;
-          }
+          font-size: 0.24rem;
+          margin: 0.4rem 0;
         }
-        .itemBox {
-          display: flex;
-          justify-content: space-between;
-          margin: 0.4rem;
-          margin-top: 1rem;
-          align-items: center;
-          > div {
-            font-family: "lcd";
-            color: #fff;
-            padding: 0.5rem 0.4rem;
-            text-align: center;
-            // padding-right: 0.rem;
-            background: rgba(24, 62, 95, 0.6);
-            box-shadow: 0rem 0.01rem 0.05rem 0rem rgba(1, 104, 185, 1),
-              0rem -0.01rem 0.05rem 0rem rgba(1, 104, 185, 1);
-            display: flex;
-            align-items: center;
-            font-size: 2.4rem;
-          }
+
+        .title1 {
+          color: #5990ff;
+          font-size: 24px;
+        }
+
+        .title2 {
+          color: #fff;
+          font-size: 0.32rem;
         }
       }
-    }
-    .item {
-      flex: 3;
-    }
-    .item1 {
-      flex: 4.5;
-    }
-  }
-  .right {
-    flex: 2.6;
-    .yqBox {
-      .box2 {
-        &:nth-child(1) .title {
-          color: #f06260;
-        }
 
-        &:nth-child(2) .title {
-          color: #ec991f;
-        }
+      .info {
+        display: flex;
+        align-items: center;
 
-        &:nth-child(3) .title {
-          color: #1f6cff;
+        >img {
+          width: 0.2rem;
+          height: 0.18rem;
+          margin-left: 0.1rem;
         }
+      }
 
-        .title {
-          text-align: center;
-          font-size: 0.3rem;
-          padding: 0.2rem 0;
-        }
-
+      .item {
+        display: flex;
+        flex-direction: column;
         background: rgba(3, 65, 109, 1);
         border: 0.01rem solid rgba(255, 255, 255, 0.2);
+        padding: 0.33rem 0.54rem;
+        margin-right: 1.38rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        flex: 1;
+
+        .title {
+          color: #ffffff;
+          font-size: 0.32rem;
+        }
       }
     }
   }
-}
 </style>
