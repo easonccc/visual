@@ -1,0 +1,561 @@
+//全局公共样式
+
+/*css reset*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    user-select: none;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+html {
+    font-size: 14px;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+//常用class
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.clear-fix {
+    &:before {
+        content: '';
+        display: table;
+    }
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+
+
+
+//一级组件content容器样式
+.content {
+    flex: 1;
+    height: 100%;
+    margin: 1.07rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    // background: #0c4266;
+    background: url(/img/Rectangle.png);
+    background-size: 100% 100%;
+    // border-radius: 13px;
+    padding: 0.4rem;
+    // box-shadow:0rem 0.01rem 0.05rem 0rem rgba(46,217,253,1),0rem -0.01rem 0.05rem 0rem rgba(46,217,253,1);
+
+}
+
+//box公共属性
+.header {
+    height: 2rem;
+    display: flex;
+    // background: #183E5F;
+    flex: 0 0 2rem;
+    .header_left{
+        flex: 0.28;
+        line-height: 2em;
+        font-size:0.8rem;
+        font-weight:400;
+        color:rgba(46,217,253,1);
+        letter-spacing:5px;
+        text-align: center;
+    }
+    .header_right{
+        flex:0.76;
+        .right_center{
+            height: 100%;
+            display: flex;
+            justify-items: center;
+            justify-content: flex-end;
+            align-items: center;
+            >span{
+                display: inline-block;
+                font-size:0.32rem;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+                line-height:1rem;
+                margin: 0 12px;
+            }
+            a{
+                display: inline-block;
+                width: 1rem;
+                height:1rem;
+                font-size:0.32rem;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+                line-height:1rem;
+                text-align: center;
+            }
+            .router-link-active{
+                background: #23ADD1 !important;
+            }
+
+
+        }
+    }
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    background:rgba(1,104,185,0.15);
+    box-shadow:0rem 0.01rem 0.04rem 0rem rgba(1,104,185,1),0rem -0.01rem 0.04rem 0rem rgba(1,104,185,1);
+    border-radius:0.02rem 0.02rem 0rem 0rem;
+    padding: 0.25rem;
+    &-head {
+        line-height: 0.56rem;
+    font-size: 0.6rem;
+    color: #2ED9FD;
+    padding: 0 0.2rem;
+    margin-bottom: 0.4rem;
+    //display: flex;
+    align-items: center;
+        .dot {
+            display: inline-block;
+            width: 0.1rem;
+            height: 0.4rem;
+            background-color: #2ED9FD;
+            position: relative;
+            margin-right: 0.2rem;
+        }
+        .right{
+            float:right;
+            color: white;
+        }
+        .page{
+            float: right;
+            span{
+                display: inline-block;
+                width: 0.45rem;
+                text-align: center;
+                height: 0.45rem;
+                position: relative;
+                margin-right: 0.4rem;
+                //    background:rgba(84,218,158,1);
+            }
+            span.active{
+                background:rgba(84,218,158,1);
+                color: white;
+            }
+
+
+        }
+        .type{
+            float: right;
+            span{
+                display: inline-block;
+                // width: 1.5rem;
+                padding: 0 0.2rem;
+                text-align: center;
+                height: 0.56rem;
+                position: relative;
+                //   margin-right: 0.4rem;
+                //    background:rgba(84,218,158,1);
+            }
+            span.active{
+                background:rgba(84,218,158,1);
+                color: white;
+            }
+
+
+        }
+    }
+    &-body {
+        flex: 1;
+        box-sizing: border-box;
+    }
+}
+
+.mt4{
+    margin-top: 0.4rem;
+}
+//自定义液晶字体
+@font-face {
+    font-family: "lcd";
+    src: url('../font/LcdD.ttf')
+}
+
+
+.mt4{
+    margin-top: 0.4rem;
+}
+.table-rem {
+    margin-top: 0.2rem;
+    width: 100%;
+    height: 100%;
+    color: white;
+
+    thead {
+        tr {
+            th {
+                height:0.5rem;
+                font-size:0.36rem;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+                line-height:0.5rem;
+                vertical-align: middle;
+            }
+        }
+    }
+    tbody {
+
+        tr {
+            td {
+                height:0.5rem;
+                font-size:0.36rem;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+                line-height:0.5rem;
+                vertical-align: middle;
+                text-align: center;
+            }
+
+        }
+    }
+}
+
+.box_tip{
+  
+   background:rgba(23, 132, 152, 1);
+   border: 0.01rem solid #fff;
+   padding : 0.4rem;
+   .box_head{
+       display: flex;
+       justify-content: space-between;
+      .w{
+          span{
+              margin:0.8rem;
+          }
+      }
+   }
+   .box_body{
+     
+           word-wrap: break-word;
+           word-break: break-all;
+     
+   }
+}
+
+//去logo
+.amap-logo{
+    display: none!important;
+}
+.amap-copyright{
+    opacity:0;
+}
+
+.peo{
+   background:rgba(34, 75, 142, 1);
+}
+
+.detailAlert{
+    background: #fff;
+    color: #fff;
+    border-radius: 4px;
+    width: 12vw;
+    .into {
+        line-height: 0.5rem;
+        background: rgba(29, 150, 111, 1);
+        border-radius: 4px;
+        font-size: 0.5rem;
+        color: #fff;
+        width: 96%;
+        margin: 0.2rem auto;
+    }
+
+    .title {
+        color: #1f9a73;
+        font-size: 0.5rem;
+        padding: 0.2rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(225, 225, 225, 1);
+    }
+    .title2 {
+        color: #1f9a73;
+        font-size: 0.5rem;
+        padding: 0.2rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(225, 225, 225, 1);
+    }
+
+    .info {
+     /*    padding: 0.2rem 0.2rem;
+        margin-top: 0.2rem; */
+        .item {
+            border: 1px solid rgba(36, 200, 117, 1);
+            font-size: 0.4rem;
+            display: flex;
+            border-bottom: 0;
+
+            &:last-child {
+                border-bottom: 1px solid rgba(36, 200, 117, 1);
+            }
+
+            > div {
+                padding: 0.2rem ;
+                text-align: left;
+            }
+
+            > div:first-child {
+                color: #b4b4b4;
+                border-right: 1px solid rgba(36, 200, 117, 1);
+                flex: 0 0 5em;
+            }
+
+            > div:last-child {
+                color: #666666;
+            }
+        }
+    }
+}
+.peo {
+    background: rgba(34, 75, 142, 1);
+    .title3 {
+        color :#fff;
+        text-align:left;
+    }
+   .info{
+       padding: 0.2rem 0.4rem;
+        .item1 {
+            border: none;
+              >div:first-child {
+                  border-right: none;
+                  color: #fff;
+              }
+              >div:last-child {
+                  color: #fff;
+              }
+        }
+     .item2 {
+        border: 1px solid #7a93b6;
+          >div {
+           border-bottom: 1px solid #7a93b6;
+            font-size: 0.4rem;
+            padding: 0.2rem;
+             .event {
+                 border-bottom: none;
+             }
+          }
+          >div:last-child{
+              border-bottom: none;
+               border-top:none;
+          }
+     }
+    .item3{
+        border-bottom: none;
+    }
+     
+   }
+}
+.tipsBox {
+    background:rgba(254, 124, 75, 0.8);
+     width: 8vw;
+     border-radius: 0.2rem;
+     padding: 0.4rem;
+    ul{
+        padding: 0;
+        margin: 0;
+        color: #fff;
+        font-size: 0.4rem;
+    }
+}
+.coBox {
+   background:rgba(23, 154, 228, 0.8);
+}
+.jiaquanBox{
+    background:rgba(137, 120, 255, 0.8);
+}
+.pmBox {
+    background:rgba(213, 21, 230, 0.8);
+}
+
+.el-range-editor.el-input__inner{
+    height: 0.7rem;
+    background-color: #022B4C;
+    .el-range-input{
+        background-color: #022B4C;
+        color:#fff;
+        font-size:0.24rem;
+    }
+    .el-range-separator{
+        color: #ccc;
+        display: none;
+    }
+    >i{
+        display: none;
+    }
+}
+.el-input--suffix .el-input__inner {
+    height: 0.7rem;
+    background-color: #022B4C;
+    color: #ccc;
+}
+.el-select .el-input .el-select__caret{
+    display: none;
+}
+.el-input{
+    input{
+        height: 0.7rem;
+        background-color: #022B4C;
+        color: #ccc;
+    }
+}
+
+
+//滚动条样式
+::-webkit-scrollbar { /*滚动条整体样式*/
+    width: 0.1rem !important;; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0.1rem !important;;
+    background: #ffffff !important;;
+    cursor: pointer !important;
+
+}
+
+::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+    border-radius: 0.1rem !important;
+    -webkit-box-shadow: inset 0 0 0.1rem rgba(240, 240, 240, .5) !important;;
+    background: rgba(63, 98, 131, 0.8) !important;;
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-track { /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 0.1rem rgba(240, 240, 240, .5) !important;;
+    border-radius: 0 !important;;
+    background: rgba(240, 240, 240, 0.5) !important;;
+    cursor: pointer !important;
+}
+
+
+
+
+
+
+

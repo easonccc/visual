@@ -1,0 +1,111 @@
+[
+    {
+      "coordx": 112.42567,
+      "coordy": 34.42135,
+      "name": "测试点1",
+      "type": "wifi"
+    },
+    {
+      "coordx": 112.43567,
+      "coordy": 34.43135,
+      "name": "测试点2",
+      "type": "gb"
+    },
+    {
+      "coordx": 112.41567,
+      "coordy": 34.41135,
+      "name": "测试点3",
+      "type": "jk"
+    },
+    {
+      "coordx": 112.42267,
+      "coordy": 34.42835,
+      "name": "测试点4",
+      "type": "led"
+    },
+    {
+      "coordx": 112.12567,
+      "coordy": 34.49135,
+      "name": "测试点5",
+      "type": "tcc"
+    },
+    {
+      "coordx": 112.72567,
+      "coordy": 34.47135,
+      "name": "测试点6",
+      "type": "zj"
+    },
+    {
+      "coordx": 112.49567,
+      "coordy": 34.49135,
+      "name": "测试点7",
+      "type": "wifi"
+    },
+    {
+      "coordx": 112.40567,
+      "coordy": 34.44135,
+      "name": "测试点8",
+      "type": "gb"
+    },
+    {
+      "coordx": 112.42067,
+      "coordy": 34.42935,
+      "name": "测试点9",
+      "type": "jk"
+    },
+    {
+      "coordx": 112.42267,
+      "coordy": 34.42735,
+      "name": "测试点10",
+      "type": "led"
+    },
+    {
+      "coordx": 112.39567,
+      "coordy": 34.47135,
+      "name": "测试点11",
+      "type": "tcc"
+    },
+    {
+      "coordx": 112.41567,
+      "coordy": 34.42935,
+      "name": "测试点12",
+      "type": "zj"
+    },
+    {
+      "coordx": 112.43567,
+      "coordy": 34.42035,
+      "name": "测试点13",
+      "type": "wifi"
+    },
+    {
+      "coordx": 112.48567,
+      "coordy": 34.40135,
+      "name": "测试点14",
+      "type": "gb"
+    },
+    {
+      "coordx": 112.42067,
+      "coordy": 34.42835,
+      "name": "测试点15",
+      "type": "jk"
+    },
+    {
+      "coordx": 112.42367,
+      "coordy": 34.42735,
+      "name": "测试点16",
+      "type": "led"
+    },
+    {
+      "coordx": 112.42167,
+      "coordy": 34.47135,
+      "name": "测试点17",
+      "type": "tcc"
+    },
+    {
+      "coordx": 112.32567,
+      "coordy": 34.49135,
+      "name": "测试点18",
+      "type": "zj"
+    }
+  ]
+  

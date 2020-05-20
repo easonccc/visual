@@ -1,0 +1,476 @@
+/*css reset*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  user-select: none;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+html {
+  font-size: 14px;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100%;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.clear-fix:before {
+  content: '';
+  display: table;
+}
+.clear-fix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.content {
+  flex: 1;
+  height: 100%;
+  margin: 1.07rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background: url(/img/Rectangle.png);
+  background-size: 100% 100%;
+  padding: 0.4rem;
+}
+.header {
+  height: 2rem;
+  display: flex;
+  flex: 0 0 2rem;
+}
+.header .header_left {
+  flex: 0.28;
+  line-height: 2em;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #2ed9fd;
+  letter-spacing: 5px;
+  text-align: center;
+}
+.header .header_right {
+  flex: 0.76;
+}
+.header .header_right .right_center {
+  height: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .header_right .right_center > span {
+  display: inline-block;
+  font-size: 0.32rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1rem;
+  margin: 0 12px;
+}
+.header .header_right .right_center a {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.32rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1rem;
+  text-align: center;
+}
+.header .header_right .right_center .router-link-active {
+  background: #23ADD1 !important;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  background: rgba(1, 104, 185, 0.15);
+  box-shadow: 0rem 0.01rem 0.04rem 0rem #0168b9, 0rem -0.01rem 0.04rem 0rem #0168b9;
+  border-radius: 0.02rem 0.02rem 0rem 0rem;
+  padding: 0.25rem;
+}
+.box-head {
+  line-height: 0.56rem;
+  font-size: 0.6rem;
+  color: #2ED9FD;
+  padding: 0 0.2rem;
+  margin-bottom: 0.4rem;
+  align-items: center;
+}
+.box-head .dot {
+  display: inline-block;
+  width: 0.1rem;
+  height: 0.4rem;
+  background-color: #2ED9FD;
+  position: relative;
+  margin-right: 0.2rem;
+}
+.box-head .right {
+  float: right;
+  color: white;
+}
+.box-head .page {
+  float: right;
+}
+.box-head .page span {
+  display: inline-block;
+  width: 0.45rem;
+  text-align: center;
+  height: 0.45rem;
+  position: relative;
+  margin-right: 0.4rem;
+}
+.box-head .page span.active {
+  background: #54da9e;
+  color: white;
+}
+.box-head .type {
+  float: right;
+}
+.box-head .type span {
+  display: inline-block;
+  padding: 0 0.2rem;
+  text-align: center;
+  height: 0.56rem;
+  position: relative;
+}
+.box-head .type span.active {
+  background: #54da9e;
+  color: white;
+}
+.box-body {
+  flex: 1;
+  box-sizing: border-box;
+}
+.mt4 {
+  margin-top: 0.4rem;
+}
+@font-face {
+  font-family: "lcd";
+  src: url('../font/LcdD.ttf');
+}
+.mt4 {
+  margin-top: 0.4rem;
+}
+.table-rem {
+  margin-top: 0.2rem;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.table-rem thead tr th {
+  height: 0.5rem;
+  font-size: 0.36rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 0.5rem;
+  vertical-align: middle;
+}
+.table-rem tbody tr td {
+  height: 0.5rem;
+  font-size: 0.36rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 0.5rem;
+  vertical-align: middle;
+  text-align: center;
+}
+.box_tip {
+  background: #178498;
+  border: 0.01rem solid #fff;
+  padding: 0.4rem;
+}
+.box_tip .box_head {
+  display: flex;
+  justify-content: space-between;
+}
+.box_tip .box_head .w span {
+  margin: 0.8rem;
+}
+.box_tip .box_body {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.amap-logo {
+  display: none!important;
+}
+.amap-copyright {
+  opacity: 0;
+}
+.peo {
+  background: #224b8e;
+}
+.detailAlert {
+  background: #fff;
+  color: #fff;
+  border-radius: 4px;
+  width: 12vw;
+}
+.detailAlert .into {
+  line-height: 0.5rem;
+  background: #1d966f;
+  border-radius: 4px;
+  font-size: 0.5rem;
+  color: #fff;
+  width: 96%;
+  margin: 0.2rem auto;
+}
+.detailAlert .title {
+  color: #1f9a73;
+  font-size: 0.5rem;
+  padding: 0.2rem;
+  text-align: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+.detailAlert .title2 {
+  color: #1f9a73;
+  font-size: 0.5rem;
+  padding: 0.2rem;
+  text-align: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+.detailAlert .info {
+  /*    padding: 0.2rem 0.2rem;
+        margin-top: 0.2rem; */
+}
+.detailAlert .info .item {
+  border: 1px solid #24c875;
+  font-size: 0.4rem;
+  display: flex;
+  border-bottom: 0;
+}
+.detailAlert .info .item:last-child {
+  border-bottom: 1px solid #24c875;
+}
+.detailAlert .info .item > div {
+  padding: 0.2rem ;
+  text-align: left;
+}
+.detailAlert .info .item > div:first-child {
+  color: #b4b4b4;
+  border-right: 1px solid #24c875;
+  flex: 0 0 5em;
+}
+.detailAlert .info .item > div:last-child {
+  color: #666666;
+}
+.peo {
+  background: #224b8e;
+}
+.peo .title3 {
+  color: #fff;
+  text-align: left;
+}
+.peo .info {
+  padding: 0.2rem 0.4rem;
+}
+.peo .info .item1 {
+  border: none;
+}
+.peo .info .item1 > div:first-child {
+  border-right: none;
+  color: #fff;
+}
+.peo .info .item1 > div:last-child {
+  color: #fff;
+}
+.peo .info .item2 {
+  border: 1px solid #7a93b6;
+}
+.peo .info .item2 > div {
+  border-bottom: 1px solid #7a93b6;
+  font-size: 0.4rem;
+  padding: 0.2rem;
+}
+.peo .info .item2 > div .event {
+  border-bottom: none;
+}
+.peo .info .item2 > div:last-child {
+  border-bottom: none;
+  border-top: none;
+}
+.peo .info .item3 {
+  border-bottom: none;
+}
+.tipsBox {
+  background: rgba(254, 124, 75, 0.8);
+  width: 8vw;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+}
+.tipsBox ul {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 0.4rem;
+}
+.coBox {
+  background: rgba(23, 154, 228, 0.8);
+}
+.jiaquanBox {
+  background: rgba(137, 120, 255, 0.8);
+}
+.pmBox {
+  background: rgba(213, 21, 230, 0.8);
+}
+.el-range-editor.el-input__inner {
+  height: 0.7rem;
+  background-color: #022B4C;
+}
+.el-range-editor.el-input__inner .el-range-input {
+  background-color: #022B4C;
+  color: #fff;
+  font-size: 0.24rem;
+}
+.el-range-editor.el-input__inner .el-range-separator {
+  color: #ccc;
+  display: none;
+}
+.el-range-editor.el-input__inner > i {
+  display: none;
+}
+.el-input--suffix .el-input__inner {
+  height: 0.7rem;
+  background-color: #022B4C;
+  color: #ccc;
+}
+.el-select .el-input .el-select__caret {
+  display: none;
+}
+.el-input input {
+  height: 0.7rem;
+  background-color: #022B4C;
+  color: #ccc;
+}
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 0.1rem !important;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 0.1rem !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 0.1rem !important;
+  -webkit-box-shadow: inset 0 0 0.1rem rgba(240, 240, 240, 0.5) !important;
+  background: rgba(63, 98, 131, 0.8) !important;
+  cursor: pointer !important;
+}
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 0.1rem rgba(240, 240, 240, 0.5) !important;
+  border-radius: 0 !important;
+  background: rgba(240, 240, 240, 0.5) !important;
+  cursor: pointer !important;
+}
